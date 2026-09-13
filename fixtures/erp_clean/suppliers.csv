@@ -1,0 +1,21 @@
+supplier_id,name,country,city,lead_time_days,rating
+1,Südhandel Supply 01,NL,Hamburg,28,4
+2,Westlog Supply 02,PL,Hamburg,14,4
+3,Ostbau Supply 03,PL,Frankfurt,14,4
+4,Alpin Supply 04,PL,Leipzig,7,3
+5,Hanse Supply 05,PL,Berlin,7,4
+6,Rhein Supply 06,DE,München,14,5
+7,Main Supply 07,AT,Leipzig,21,5
+8,Elbe Supply 08,PL,Berlin,7,3
+9,Donau Supply 09,PL,Hamburg,28,4
+10,Nordwerk Supply 10,AT,München,28,4
+11,Südhandel Supply 11,NL,Hamburg,21,4
+12,Westlog Supply 12,PL,Frankfurt,28,3
+13,Ostbau Supply 13,AT,Hamburg,14,5
+14,Alpin Supply 14,PL,München,14,3
+15,Hanse Supply 15,AT,Hamburg,14,4
+16,Rhein Supply 16,NL,München,28,3
+17,Main Supply 17,AT,Leipzig,14,4
+18,Elbe Supply 18,AT,Frankfurt,28,4
+19,Donau Supply 19,AT,Stuttgart,28,4
+20,Nordwerk Supply 20,DE,Leipzig,14,3

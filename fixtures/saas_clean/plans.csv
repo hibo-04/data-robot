@@ -1,0 +1,5 @@
+plan_id,name,monthly_price,included_seats,is_active
+1,Starter,29,3,true
+2,Team,79,10,true
+3,Business,199,25,true
+4,Enterprise,499,100,true

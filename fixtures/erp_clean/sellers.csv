@@ -1,0 +1,13 @@
+seller_id,name,email,region,quota,is_active
+1,Ben Schmidt,seller1@erp.example,München,265000,true
+2,Clara Weber,seller2@erp.example,Köln,280000,true
+3,David Fischer,seller3@erp.example,Leipzig,295000,true
+4,Elena Meyer,seller4@erp.example,Stuttgart,310000,true
+5,Felix Wagner,seller5@erp.example,Hamburg,325000,true
+6,Greta Becker,seller6@erp.example,München,340000,true
+7,Hans Hoffmann,seller7@erp.example,Köln,355000,true
+8,Ines Schäfer,seller8@erp.example,Leipzig,370000,true
+9,Jonas Koch,seller9@erp.example,Stuttgart,385000,true
+10,Anna Müller,seller10@erp.example,Hamburg,400000,true
+11,Ben Schmidt,seller11@erp.example,München,415000,false
+12,Clara Weber,seller12@erp.example,Köln,430000,true

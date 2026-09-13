@@ -1,0 +1,201 @@
+activity_id,contact_id,type,activity_date,duration_min,outcome,completed,notes
+1,3,meeting,2026-01-28,60,no_show,true,intro call
+2,64,demo,2026-06-10,30,no_show,false,intro call
+3,22,call,2026-01-30,90,no_show,true,intro call
+4,53,meeting,2026-03-09,45,rescheduled,true,send quote
+5,70,email,2026-01-10,45,rescheduled,true,send quote
+6,19,meeting,2026-02-03,45,completed,true,send quote
+7,56,meeting,2026-05-29,90,no_show,true,
+8,50,email,2026-03-25,90,no_show,false,send quote
+9,59,meeting,2026-01-19,15,rescheduled,true,follow up
+10,75,meeting,2026-04-12,60,completed,true,follow up
+11,28,meeting,2026-03-25,60,no_show,true,
+12,43,call,2026-05-12,60,rescheduled,true,send quote
+13,71,demo,2026-03-01,15,no_show,true,
+14,78,call,2026-05-19,90,completed,true,
+15,20,meeting,2026-02-04,90,rescheduled,false,intro call
+16,12,email,2026-04-21,90,completed,true,send quote
+17,71,email,2026-03-18,90,completed,true,follow up
+18,7,demo,2026-01-22,90,no_show,true,intro call
+19,31,meeting,2026-05-27,60,completed,true,
+20,51,email,2026-05-09,15,no_show,true,
+21,53,email,2026-02-28,60,no_show,false,follow up
+22,71,call,2026-02-07,30,completed,true,send quote
+23,39,email,2026-06-06,30,completed,true,follow up
+24,67,demo,2026-05-18,45,completed,false,follow up
+25,66,call,2026-05-23,45,no_show,true,intro call
+26,35,email,2026-02-05,60,completed,true,intro call
+27,34,email,2026-02-11,15,no_show,false,follow up
+28,15,call,2026-05-28,30,rescheduled,true,send quote
+29,45,call,2026-02-21,60,no_show,true,
+30,74,demo,2026-03-06,15,completed,true,
+31,21,call,2026-06-25,90,no_show,true,send quote
+32,23,email,2026-06-15,15,rescheduled,true,follow up
+33,71,call,2026-05-01,15,rescheduled,true,follow up
+34,76,call,2026-04-11,60,rescheduled,true,send quote
+35,18,email,2026-04-23,15,completed,false,
+36,60,call,2026-04-08,15,rescheduled,true,follow up
+37,73,meeting,2026-05-20,60,completed,true,intro call
+38,38,email,2026-02-12,90,no_show,false,send quote
+39,10,call,2026-01-24,45,completed,true,follow up
+40,19,demo,2026-06-18,60,no_show,true,follow up
+41,8,meeting,2026-06-24,45,no_show,true,follow up
+42,38,call,2026-03-20,90,no_show,true,follow up
+43,71,email,2026-03-16,15,rescheduled,false,intro call
+44,6,demo,2026-03-11,60,rescheduled,true,
+45,36,demo,2026-01-02,15,no_show,true,follow up
+46,61,email,2026-05-26,30,completed,false,send quote
+47,21,email,2026-05-11,30,rescheduled,true,
+48,1,meeting,2026-03-02,60,completed,true,intro call
+49,58,call,2026-01-12,15,rescheduled,true,intro call
+50,76,email,2026-03-08,15,completed,true,
+51,13,meeting,2026-03-12,30,rescheduled,false,send quote
+52,68,email,2026-01-26,15,completed,true,follow up
+53,38,email,2026-01-06,15,completed,true,intro call
+54,54,call,2026-01-02,45,rescheduled,true,intro call
+55,71,call,2026-01-16,45,no_show,true,follow up
+56,59,email,2026-05-22,15,completed,true,send quote
+57,52,email,2026-04-10,45,rescheduled,true,
+58,15,call,2026-03-12,45,completed,true,send quote
+59,57,demo,2026-01-27,15,rescheduled,false,send quote
+60,35,email,2026-06-02,15,no_show,true,follow up
+61,19,demo,2026-06-26,90,completed,false,send quote
+62,5,demo,2026-02-02,60,completed,true,intro call
+63,21,email,2026-06-18,90,no_show,false,intro call
+64,39,meeting,2026-01-08,60,completed,true,follow up
+65,51,call,2026-01-09,60,no_show,true,send quote
+66,21,call,2026-01-16,45,rescheduled,true,
+67,78,call,2026-03-29,90,rescheduled,true,intro call
+68,55,call,2026-03-03,30,rescheduled,true,follow up
+69,20,demo,2026-01-22,30,completed,true,follow up
+70,44,meeting,2026-05-30,30,no_show,true,
+71,14,meeting,2026-04-25,45,rescheduled,true,intro call
+72,50,demo,2026-03-29,30,completed,false,follow up
+73,52,meeting,2026-02-04,45,rescheduled,true,send quote
+74,48,demo,2026-04-07,90,rescheduled,true,send quote
+75,14,email,2026-03-28,60,no_show,false,follow up
+76,48,meeting,2026-05-14,15,no_show,true,follow up
+77,34,demo,2026-04-25,30,rescheduled,true,follow up
+78,6,demo,2026-02-18,15,completed,false,send quote
+79,17,demo,2026-06-24,45,completed,true,send quote
+80,25,email,2026-06-15,30,completed,true,send quote
+81,72,call,2026-03-30,30,completed,true,
+82,20,email,2026-05-02,30,no_show,true,
+83,30,call,2026-04-06,45,completed,false,
+84,61,meeting,2026-03-03,60,completed,true,follow up
+85,2,call,2026-05-13,60,completed,true,
+86,73,email,2026-02-06,45,rescheduled,false,
+87,48,call,2026-03-09,30,rescheduled,true,follow up
+88,51,meeting,2026-05-09,60,completed,true,
+89,54,email,2026-01-18,15,rescheduled,true,
+90,41,email,2026-03-31,30,rescheduled,true,send quote
+91,69,email,2026-03-16,30,completed,true,
+92,53,demo,2026-01-15,15,completed,true,
+93,65,email,2026-01-15,30,completed,true,
+94,39,meeting,2026-03-07,90,no_show,true,intro call
+95,26,email,2026-01-01,45,rescheduled,true,follow up
+96,47,email,2026-01-18,60,no_show,true,
+97,16,meeting,2026-04-20,90,completed,true,
+98,58,email,2026-02-28,15,completed,false,
+99,80,meeting,2026-04-03,15,rescheduled,true,send quote
+100,80,demo,2026-01-19,60,rescheduled,true,send quote
+101,36,call,2026-02-18,90,rescheduled,true,follow up
+102,24,demo,2026-05-23,60,rescheduled,false,send quote
+103,58,call,2026-06-18,30,completed,false,send quote
+104,75,demo,2026-03-28,60,rescheduled,true,
+105,66,call,2026-05-20,60,rescheduled,true,
+106,41,meeting,2026-05-13,45,rescheduled,true,
+107,2,call,2026-06-12,45,completed,true,
+108,19,call,2026-05-19,30,completed,true,
+109,21,email,2026-03-18,60,rescheduled,false,send quote
+110,1,demo,2026-03-09,45,no_show,false,send quote
+111,31,demo,2026-02-27,15,rescheduled,true,follow up
+112,16,call,2026-02-03,15,no_show,true,send quote
+113,22,call,2026-01-16,15,completed,false,send quote
+114,67,call,2026-05-26,30,completed,false,intro call
+115,4,email,2026-05-18,30,no_show,true,intro call
+116,75,email,2026-01-06,30,rescheduled,true,follow up
+117,14,demo,2026-01-20,30,no_show,true,
+118,72,meeting,2026-05-07,45,completed,true,intro call
+119,58,call,2026-01-07,30,completed,false,
+120,70,meeting,2026-05-10,60,rescheduled,true,
+121,54,call,2026-03-30,90,no_show,true,send quote
+122,61,demo,2026-02-26,90,no_show,false,follow up
+123,7,email,2026-02-23,15,no_show,true,
+124,2,call,2026-01-25,15,completed,true,send quote
+125,45,email,2026-01-30,45,completed,true,send quote
+126,9,call,2026-03-19,45,completed,true,intro call
+127,67,email,2026-02-27,30,no_show,true,intro call
+128,33,meeting,2026-01-31,45,no_show,true,follow up
+129,68,demo,2026-03-16,90,completed,true,follow up
+130,33,meeting,2026-02-22,60,rescheduled,true,follow up
+131,36,meeting,2026-03-10,90,completed,true,send quote
+132,77,call,2026-06-17,90,no_show,true,follow up
+133,7,email,2026-01-29,60,completed,true,send quote
+134,15,call,2026-04-24,60,rescheduled,false,
+135,74,call,2026-05-13,90,no_show,true,follow up
+136,15,meeting,2026-05-19,90,completed,true,follow up
+137,63,call,2026-01-03,15,no_show,false,follow up
+138,75,email,2026-01-31,90,completed,true,
+139,60,call,2026-04-27,60,rescheduled,false,follow up
+140,3,demo,2026-01-21,90,completed,true,send quote
+141,47,demo,2026-05-27,60,no_show,true,
+142,17,email,2026-05-05,45,no_show,true,send quote
+143,18,meeting,2026-05-27,30,rescheduled,true,send quote
+144,49,email,2026-02-18,60,no_show,true,
+145,26,email,2026-04-30,60,no_show,true,intro call
+146,59,call,2026-02-16,90,rescheduled,false,follow up
+147,9,email,2026-03-19,90,completed,true,
+148,57,call,2026-03-21,30,rescheduled,true,send quote
+149,70,meeting,2026-04-30,90,no_show,false,send quote
+150,61,call,2026-05-07,45,completed,true,follow up
+151,61,demo,2026-04-15,15,rescheduled,true,intro call
+152,17,call,2026-05-30,90,rescheduled,true,follow up
+153,20,call,2026-05-08,90,rescheduled,true,follow up
+154,23,demo,2026-05-19,30,completed,true,
+155,59,email,2026-06-17,90,no_show,true,intro call
+156,39,demo,2026-02-21,60,no_show,true,follow up
+157,52,call,2026-01-05,15,completed,true,send quote
+158,14,demo,2026-03-05,60,rescheduled,true,
+159,11,call,2026-03-29,45,no_show,true,send quote
+160,37,demo,2026-06-23,90,rescheduled,true,
+161,62,meeting,2026-01-25,90,rescheduled,false,follow up
+162,20,email,2026-06-02,15,no_show,true,follow up
+163,59,call,2026-02-27,15,no_show,true,
+164,48,meeting,2026-06-27,45,completed,true,intro call
+165,30,meeting,2026-02-13,30,completed,true,
+166,58,call,2026-05-10,15,rescheduled,true,follow up
+167,35,demo,2026-01-08,60,completed,true,send quote
+168,18,call,2026-06-19,15,rescheduled,true,intro call
+169,64,call,2026-01-10,45,no_show,true,intro call
+170,15,call,2026-02-16,30,rescheduled,true,
+171,8,email,2026-06-17,45,completed,true,follow up
+172,34,email,2026-03-03,15,completed,true,intro call
+173,4,meeting,2026-06-26,30,completed,true,intro call
+174,43,call,2026-01-07,30,no_show,true,intro call
+175,71,demo,2026-06-10,15,rescheduled,false,send quote
+176,24,meeting,2026-04-08,30,no_show,true,
+177,50,email,2026-06-27,15,completed,true,intro call
+178,19,demo,2026-03-08,90,rescheduled,true,send quote
+179,53,email,2026-02-03,60,no_show,true,follow up
+180,35,meeting,2026-05-26,30,no_show,true,intro call
+181,75,call,2026-03-27,30,no_show,true,
+182,30,email,2026-04-01,15,rescheduled,true,
+183,51,demo,2026-03-15,45,no_show,true,intro call
+184,51,meeting,2026-03-05,45,completed,true,
+185,52,meeting,2026-03-17,60,completed,true,
+186,41,call,2026-03-09,15,no_show,false,intro call
+187,25,meeting,2026-05-05,15,rescheduled,true,send quote
+188,62,call,2026-06-30,15,no_show,true,intro call
+189,9,demo,2026-01-13,45,rescheduled,true,follow up
+190,68,call,2026-03-18,15,no_show,true,intro call
+191,22,demo,2026-03-09,30,completed,true,intro call
+192,76,email,2026-04-01,90,completed,true,intro call
+193,7,meeting,2026-01-23,45,completed,true,
+194,79,email,2026-01-11,60,no_show,true,send quote
+195,16,meeting,2026-03-13,30,rescheduled,true,intro call
+196,5,email,2026-01-12,45,completed,true,
+197,9,call,2026-05-19,15,no_show,true,
+198,53,meeting,2026-05-04,90,completed,true,
+199,79,call,2026-02-20,60,no_show,true,intro call
+200,15,demo,2026-05-06,90,no_show,true,

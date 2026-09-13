@@ -1,0 +1,9 @@
+depot_id,name,city,capacity_pallets
+1,Depot München,München,480
+2,Depot Köln,Köln,560
+3,Depot Leipzig,Leipzig,640
+4,Depot Stuttgart,Stuttgart,720
+5,Depot Hamburg,Hamburg,800
+6,Depot München,München,880
+7,Depot Köln,Köln,960
+8,Depot Leipzig,Leipzig,1040

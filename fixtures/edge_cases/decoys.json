@@ -1,0 +1,17 @@
+[
+  {
+    "parent_id": "X1",
+    "label": "decoy 1",
+    "comment": "not a parent key"
+  },
+  {
+    "parent_id": "X2",
+    "label": "decoy 2",
+    "comment": "not a parent key"
+  },
+  {
+    "parent_id": "X3",
+    "label": "decoy 3",
+    "comment": "not a parent key"
+  }
+]

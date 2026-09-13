@@ -1,0 +1,25 @@
+---
+description: Hard limits on test data size and a ban on unsupervised performance datasets
+alwaysApply: true
+---
+
+# Test data and performance-test limits
+
+Functional quality of the analytics core comes first. Do **not** scale fixtures or generate load data unless the user explicitly asks in that message.
+
+Hard budget until the user says otherwise:
+
+- at most ~10 tables per fixture
+- at most ~10_000 rows **in total** across all tables of a fixture
+
+Never create datasets with 100k / 1M / 10M / 100M rows, or any similar bulk scale.
+
+Never add “precautionary” performance fixtures, stress dumps, or benchmark generators for mass data.
+
+Do **not** run large-data performance tests on your own.
+
+If more test coverage is needed, add **another small fixture with a different schema**, not more rows.
+
+Allowed: `ecommerce_clean`, `ecommerce_dirty`, `crm`, `edge_cases`, `erp_clean`/`erp_dirty`, `production_clean`/`production_dirty`, `logistics_clean`/`logistics_dirty`, `saas_clean`/`saas_dirty`, `projects_clean`/`projects_dirty`, and similar compact models.
+
+Priority: correctness → explainability → testability → architecture → only later mass-data performance.

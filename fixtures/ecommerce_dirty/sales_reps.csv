@@ -1,0 +1,13 @@
+id,name,email,phone,region,office_city,team,hire_date,last_review,active,quota,commission_pct,manager_id
+1,Ben Schmidt,rep1@sales.example,+49-40-100001,Nord,Hamburg,Farmer,2018-03-22,2019-03-22,true,425000,0.05,
+2,Clara Weber,rep2@sales.example,+49-40-100002,Süd,München,Key Account,2018-06-10,2019-06-10,true,450000,0.06,
+3,David Fischer,rep3@sales.example,+49-40-100003,West,Köln,Hunter,2018-08-29,2019-08-29,true,475000,0.07,
+4,Elena Meyer,rep4@sales.example,+49-40-100004,Ost,Berlin,Farmer,2018-11-17,2019-11-17,true,500000,0.08,1
+5,Felix Wagner,rep5@sales.example,+49-40-100005,Export,Stuttgart,Key Account,2019-02-05,2020-02-05,true,525000,0.04,2
+6,Greta Becker,rep6@sales.example,+49-40-100006,Nord,Leipzig,Hunter,2019-04-26,2020-04-25,true,550000,0.05,3
+7,Hans Hoffmann,rep7@sales.example,+49-40-100007,Süd,Frankfurt,Farmer,2019-07-15,2020-07-14,true,575000,0.06,1
+8,Ines Schäfer,rep8@sales.example,+49-40-100008,West,Hamburg,Key Account,2019-10-03,2020-10-02,true,600000,0.07,2
+9,Jonas Koch,rep9@sales.example,+49-40-100009,Ost,München,Hunter,2019-12-22,2020-12-21,true,625000,0.08,3
+10,Anna Müller,rep10@sales.example,+49-40-100010,Export,Köln,Farmer,2020-03-11,2021-03-11,true,650000,0.04,1
+11,Ben Schmidt,rep11@sales.example,+49-40-100011,Nord,Berlin,Key Account,2020-05-30,2021-05-30,false,675000,0.05,2
+12,Clara Weber,rep12@sales.example,+49-40-100012,Süd,Stuttgart,Hunter,2020-08-18,2021-08-18,true,700000,0.06,3

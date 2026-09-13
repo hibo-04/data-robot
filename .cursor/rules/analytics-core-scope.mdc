@@ -1,0 +1,26 @@
+---
+description: Keep V1 scoped to a source-agnostic analytics core with explainable decisions
+alwaysApply: true
+---
+
+# Analytics core V1 scope
+
+This repo is a local proof of concept for a **source-agnostic analytics engine**.
+
+A minimal local web UI lives in `web/` (`analytics-web`). It is an adapter around the library.
+
+Do not add: auth, billing, multi-tenancy, cloud/k8s, extra DB connectors (Oracle, SQL Server, SAP, …), scheduling, or SaaS infrastructure.
+
+## Architecture
+
+- Analytics logic (profiling, relationships, identities, semantic model, KPIs, query planner, reports) must not import PostgreSQL, HTTP frameworks, or HTML.
+- The web crate may use Axum and must call only the public `analytics` API.
+- All source access goes through `DataSource`. Current adapters: `FixtureConnector`, `PostgreSQLConnector`.
+- The fixture path is the primary development and test path.
+- Every relationship, KPI, identity, and report suggestion needs a confidence score plus human-readable evidence/reason. No black-box decisions.
+- The core must work without an LLM.
+- Identity templates, dictionary packs, and similar catalogs must grow when tests reveal a missing pattern. Policy: `docs/model-review.md`.
+
+## Fixtures
+
+`ground_truth.json` is only for the benchmark harness. Connectors and the analysis pipeline must not read it.

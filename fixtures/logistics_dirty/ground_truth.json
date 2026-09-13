@@ -1,0 +1,66 @@
+{
+  "relationships": [
+    {
+      "from": "vehicles.nl_id",
+      "to": "depots.nl_id"
+    },
+    {
+      "from": "drivers.nl_id",
+      "to": "depots.nl_id"
+    },
+    {
+      "from": "routes.nl_id",
+      "to": "depots.nl_id"
+    },
+    {
+      "from": "routes.fz_nr",
+      "to": "vehicles.fz_nr"
+    },
+    {
+      "from": "routes.fahrer_nr",
+      "to": "drivers.fahrer_nr"
+    },
+    {
+      "from": "shipments.tour_nr",
+      "to": "routes.tour_nr"
+    },
+    {
+      "from": "shipments.nl_id",
+      "to": "depots.nl_id"
+    },
+    {
+      "from": "stops.tour_nr",
+      "to": "routes.tour_nr"
+    },
+    {
+      "from": "stops.send_nr",
+      "to": "shipments.send_nr"
+    },
+    {
+      "from": "scan_events.send_nr",
+      "to": "shipments.send_nr"
+    },
+    {
+      "from": "scan_events.stop_nr",
+      "to": "stops.stop_nr"
+    },
+    {
+      "from": "delivery_status.send_nr",
+      "to": "shipments.send_nr"
+    }
+  ],
+  "kpis": [
+    {
+      "name": "Shipment Count",
+      "definition": "COUNT(DISTINCT shipments.send_nr)"
+    },
+    {
+      "name": "Delay",
+      "definition": "SUM(shipments.versp_min)"
+    },
+    {
+      "name": "Distance",
+      "definition": "SUM(routes.km_summe)"
+    }
+  ]
+}

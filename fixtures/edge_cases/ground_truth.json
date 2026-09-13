@@ -1,0 +1,13 @@
+{
+  "relationships": [
+    {
+      "from": "children.parent_id",
+      "to": "parents.parent_id"
+    },
+    {
+      "from": "pieces.bundle_id",
+      "to": "bundles.bundle_id"
+    }
+  ],
+  "kpis": []
+}

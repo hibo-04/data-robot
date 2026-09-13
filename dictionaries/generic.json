@@ -1,0 +1,170 @@
+{
+  "pack": "generic",
+  "version": 1,
+  "description": "Neutral labels from column tokens. No industry-specific names.",
+  "entries": [
+    {
+      "id": "generic.quantity",
+      "tokens": ["quantity", "qty", "menge"],
+      "required_role": "measure",
+      "entity_hints": [],
+      "aggregation": "sum",
+      "label": "Quantity",
+      "confidence_boost": 0.04
+    },
+    {
+      "id": "generic.net_amount",
+      "tokens": ["net_amount", "netto"],
+      "required_role": "measure",
+      "entity_hints": [],
+      "aggregation": "sum",
+      "label": "Net Amount",
+      "confidence_boost": 0.05
+    },
+    {
+      "id": "generic.gross_amount",
+      "tokens": ["gross_amount", "brutto"],
+      "required_role": "measure",
+      "entity_hints": [],
+      "aggregation": "sum",
+      "label": "Gross Amount",
+      "confidence_boost": 0.04
+    },
+    {
+      "id": "generic.cost",
+      "tokens": ["cost", "costs", "unit_cost", "kosten"],
+      "required_role": "measure",
+      "entity_hints": [],
+      "aggregation": "sum",
+      "label": "Cost",
+      "confidence_boost": 0.04
+    },
+    {
+      "id": "generic.price",
+      "tokens": ["price", "preis", "list_price", "unit_price"],
+      "required_role": "measure",
+      "entity_hints": [],
+      "aggregation": "sum",
+      "label": "Price",
+      "confidence_boost": 0.03
+    },
+    {
+      "id": "generic.discount",
+      "tokens": ["discount", "rabatt"],
+      "required_role": "measure",
+      "entity_hints": [],
+      "aggregation": "sum",
+      "label": "Discount",
+      "confidence_boost": 0.04
+    },
+    {
+      "id": "generic.tax",
+      "tokens": ["tax", "mwst", "ust", "vat"],
+      "required_role": "measure",
+      "entity_hints": [],
+      "aggregation": "sum",
+      "label": "Tax",
+      "confidence_boost": 0.04
+    },
+    {
+      "id": "generic.fee",
+      "tokens": ["fee", "gebuehr", "gebühr"],
+      "required_role": "measure",
+      "entity_hints": [],
+      "aggregation": "sum",
+      "label": "Fee",
+      "confidence_boost": 0.03
+    },
+    {
+      "id": "generic.total",
+      "tokens": ["total", "summe"],
+      "required_role": "measure",
+      "entity_hints": ["invoice", "order"],
+      "aggregation": "sum",
+      "label": "Total",
+      "confidence_boost": 0.03
+    },
+    {
+      "id": "generic.balance",
+      "tokens": ["balance", "saldo"],
+      "required_role": "measure",
+      "entity_hints": [],
+      "aggregation": "sum",
+      "label": "Balance",
+      "confidence_boost": 0.03
+    },
+    {
+      "id": "generic.hours",
+      "tokens": ["hours", "stunden"],
+      "required_role": "measure",
+      "entity_hints": ["entry", "time", "zeit"],
+      "aggregation": "sum",
+      "label": "Hours",
+      "confidence_boost": 0.03
+    },
+    {
+      "id": "generic.duration",
+      "tokens": ["duration", "dauer", "dauer_min"],
+      "required_role": "measure",
+      "entity_hints": ["fault", "stoer"],
+      "aggregation": "sum",
+      "label": "Duration",
+      "confidence_boost": 0.03
+    },
+    {
+      "id": "generic.distance",
+      "tokens": ["distance", "distanz", "km", "km_summe"],
+      "required_role": "measure",
+      "entity_hints": ["route", "tour"],
+      "aggregation": "sum",
+      "label": "Distance",
+      "confidence_boost": 0.04
+    },
+    {
+      "id": "generic.invoice_amount",
+      "tokens": ["total_amount", "gross_amount", "brutto"],
+      "required_role": "measure",
+      "entity_hints": ["invoice"],
+      "aggregation": "sum",
+      "label": "Invoice Amount",
+      "confidence_boost": 0.06
+    },
+    {
+      "id": "generic.mrr",
+      "tokens": ["mrr", "mrr_betrag"],
+      "required_role": "measure",
+      "entity_hints": ["subscription", "abo"],
+      "aggregation": "sum",
+      "label": "MRR",
+      "confidence_boost": 0.08
+    },
+    {
+      "id": "generic.arr",
+      "tokens": ["arr", "arr_betrag"],
+      "required_role": "measure",
+      "entity_hints": ["subscription", "abo"],
+      "aggregation": "sum",
+      "label": "ARR",
+      "confidence_boost": 0.08
+    },
+    {
+      "id": "generic.energy",
+      "tokens": ["energy", "energie", "energy_kwh", "energie_kwh"],
+      "required_role": "measure",
+      "entity_hints": [],
+      "aggregation": "sum",
+      "label": "Energy",
+      "confidence_boost": 0.04
+    },
+    {
+      "id": "generic.delay",
+      "tokens": ["delay", "delay_min", "versp", "versp_min"],
+      "required_role": "measure",
+      "entity_hints": [],
+      "aggregation": "sum",
+      "label": "Delay",
+      "confidence_boost": 0.04
+    }
+  ],
+  "derived": []
+}

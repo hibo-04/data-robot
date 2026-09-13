@@ -1,0 +1,54 @@
+{
+  "relationships": [
+    {
+      "from": "customers.seller_id",
+      "to": "sellers.seller_id"
+    },
+    {
+      "from": "products.supplier_id",
+      "to": "suppliers.supplier_id"
+    },
+    {
+      "from": "orders.customer_id",
+      "to": "customers.customer_id"
+    },
+    {
+      "from": "orders.seller_id",
+      "to": "sellers.seller_id"
+    },
+    {
+      "from": "order_items.order_id",
+      "to": "orders.order_id"
+    },
+    {
+      "from": "order_items.product_id",
+      "to": "products.product_id"
+    },
+    {
+      "from": "invoices.order_id",
+      "to": "orders.order_id"
+    },
+    {
+      "from": "returns.item_id",
+      "to": "order_items.item_id"
+    }
+  ],
+  "kpis": [
+    {
+      "name": "Revenue",
+      "definition": "SUM(orders.net_amount)"
+    },
+    {
+      "name": "Order Count",
+      "definition": "COUNT(DISTINCT orders.order_id)"
+    },
+    {
+      "name": "Units Sold",
+      "definition": "SUM(order_items.quantity)"
+    },
+    {
+      "name": "Refunds",
+      "definition": "SUM(returns.refund_amount)"
+    }
+  ]
+}

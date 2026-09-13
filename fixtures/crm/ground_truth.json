@@ -1,0 +1,22 @@
+{
+  "relationships": [
+    {
+      "from": "contacts.account_nr",
+      "to": "accounts.account_id"
+    },
+    {
+      "from": "opportunities.account_id",
+      "to": "accounts.account_id"
+    },
+    {
+      "from": "activities.contact_id",
+      "to": "contacts.id"
+    }
+  ],
+  "kpis": [
+    {
+      "name": "Revenue",
+      "definition": "SUM(opportunities.amount)"
+    }
+  ]
+}

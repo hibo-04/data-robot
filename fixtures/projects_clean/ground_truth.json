@@ -1,0 +1,66 @@
+{
+  "relationships": [
+    {
+      "from": "employees.team_id",
+      "to": "teams.team_id"
+    },
+    {
+      "from": "projects.customer_id",
+      "to": "customers.customer_id"
+    },
+    {
+      "from": "assignments.project_id",
+      "to": "projects.project_id"
+    },
+    {
+      "from": "assignments.employee_id",
+      "to": "employees.employee_id"
+    },
+    {
+      "from": "tasks.project_id",
+      "to": "projects.project_id"
+    },
+    {
+      "from": "tasks.assignee_id",
+      "to": "employees.employee_id"
+    },
+    {
+      "from": "time_entries.project_id",
+      "to": "projects.project_id"
+    },
+    {
+      "from": "time_entries.employee_id",
+      "to": "employees.employee_id"
+    },
+    {
+      "from": "costs.project_id",
+      "to": "projects.project_id"
+    },
+    {
+      "from": "invoices.project_id",
+      "to": "projects.project_id"
+    },
+    {
+      "from": "invoices.customer_id",
+      "to": "customers.customer_id"
+    },
+    {
+      "from": "budgets.project_id",
+      "to": "projects.project_id"
+    }
+  ],
+  "kpis": [
+    {
+      "name": "Billable Hours",
+      "definition": "SUM(time_entries.hours)"
+    },
+    {
+      "name": "Project Cost",
+      "definition": "SUM(costs.amount)"
+    },
+    {
+      "name": "Invoice Amount",
+      "definition": "SUM(invoices.gross_amount)"
+    }
+  ]
+}

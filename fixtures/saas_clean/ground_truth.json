@@ -1,0 +1,62 @@
+{
+  "relationships": [
+    {
+      "from": "users.company_id",
+      "to": "companies.company_id"
+    },
+    {
+      "from": "subscriptions.company_id",
+      "to": "companies.company_id"
+    },
+    {
+      "from": "subscriptions.plan_id",
+      "to": "plans.plan_id"
+    },
+    {
+      "from": "invoices.subscription_id",
+      "to": "subscriptions.subscription_id"
+    },
+    {
+      "from": "invoices.company_id",
+      "to": "companies.company_id"
+    },
+    {
+      "from": "payments.invoice_id",
+      "to": "invoices.invoice_id"
+    },
+    {
+      "from": "feature_usage.company_id",
+      "to": "companies.company_id"
+    },
+    {
+      "from": "feature_usage.user_id",
+      "to": "users.user_id"
+    },
+    {
+      "from": "tickets.company_id",
+      "to": "companies.company_id"
+    },
+    {
+      "from": "tickets.user_id",
+      "to": "users.user_id"
+    }
+  ],
+  "kpis": [
+    {
+      "name": "MRR",
+      "definition": "SUM(subscriptions.mrr)"
+    },
+    {
+      "name": "ARR",
+      "definition": "SUM(subscriptions.arr)"
+    },
+    {
+      "name": "Invoice Amount",
+      "definition": "SUM(invoices.total_amount)"
+    },
+    {
+      "name": "Ticket Count",
+      "definition": "COUNT(DISTINCT tickets.ticket_id)"
+    }
+  ]
+}

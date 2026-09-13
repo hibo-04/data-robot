@@ -1,0 +1,332 @@
+{
+  "name": "logistics_clean",
+  "tables": {
+    "depots": {
+      "columns": {
+        "depot_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        },
+        "capacity_pallets": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "depot_id"
+      ]
+    },
+    "vehicles": {
+      "columns": {
+        "vehicle_id": {
+          "type": "integer"
+        },
+        "plate": {
+          "type": "text"
+        },
+        "type": {
+          "type": "text"
+        },
+        "depot_id": {
+          "type": "integer"
+        },
+        "capacity_kg": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "vehicle_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "depot_id"
+          ],
+          "ref_table": "depots",
+          "ref_columns": [
+            "depot_id"
+          ]
+        }
+      ]
+    },
+    "drivers": {
+      "columns": {
+        "driver_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "depot_id": {
+          "type": "integer"
+        },
+        "license_class": {
+          "type": "text"
+        },
+        "hired_on": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "driver_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "depot_id"
+          ],
+          "ref_table": "depots",
+          "ref_columns": [
+            "depot_id"
+          ]
+        }
+      ]
+    },
+    "routes": {
+      "columns": {
+        "route_id": {
+          "type": "integer"
+        },
+        "depot_id": {
+          "type": "integer"
+        },
+        "vehicle_id": {
+          "type": "integer"
+        },
+        "driver_id": {
+          "type": "integer"
+        },
+        "route_date": {
+          "type": "date"
+        },
+        "planned_stops": {
+          "type": "integer"
+        },
+        "total_distance_km": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "route_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "depot_id"
+          ],
+          "ref_table": "depots",
+          "ref_columns": [
+            "depot_id"
+          ]
+        },
+        {
+          "columns": [
+            "vehicle_id"
+          ],
+          "ref_table": "vehicles",
+          "ref_columns": [
+            "vehicle_id"
+          ]
+        },
+        {
+          "columns": [
+            "driver_id"
+          ],
+          "ref_table": "drivers",
+          "ref_columns": [
+            "driver_id"
+          ]
+        }
+      ]
+    },
+    "shipments": {
+      "columns": {
+        "shipment_id": {
+          "type": "integer"
+        },
+        "route_id": {
+          "type": "integer"
+        },
+        "depot_id": {
+          "type": "integer"
+        },
+        "consignee": {
+          "type": "text"
+        },
+        "promised_at": {
+          "type": "timestamp"
+        },
+        "delivered_at": {
+          "type": "timestamp",
+          "nullable": true
+        },
+        "delay_min": {
+          "type": "integer",
+          "nullable": true
+        },
+        "weight_kg": {
+          "type": "decimal"
+        },
+        "status": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "shipment_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "route_id"
+          ],
+          "ref_table": "routes",
+          "ref_columns": [
+            "route_id"
+          ]
+        },
+        {
+          "columns": [
+            "depot_id"
+          ],
+          "ref_table": "depots",
+          "ref_columns": [
+            "depot_id"
+          ]
+        }
+      ]
+    },
+    "stops": {
+      "columns": {
+        "stop_id": {
+          "type": "integer"
+        },
+        "route_id": {
+          "type": "integer"
+        },
+        "shipment_id": {
+          "type": "integer"
+        },
+        "seq": {
+          "type": "integer"
+        },
+        "city": {
+          "type": "text"
+        },
+        "leg_km": {
+          "type": "decimal"
+        },
+        "dwell_min": {
+          "type": "integer"
+        },
+        "arrived_at": {
+          "type": "timestamp"
+        },
+        "departed_at": {
+          "type": "timestamp"
+        }
+      },
+      "primary_key": [
+        "stop_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "route_id"
+          ],
+          "ref_table": "routes",
+          "ref_columns": [
+            "route_id"
+          ]
+        },
+        {
+          "columns": [
+            "shipment_id"
+          ],
+          "ref_table": "shipments",
+          "ref_columns": [
+            "shipment_id"
+          ]
+        }
+      ]
+    },
+    "scan_events": {
+      "columns": {
+        "scan_id": {
+          "type": "integer"
+        },
+        "shipment_id": {
+          "type": "integer"
+        },
+        "stop_id": {
+          "type": "integer"
+        },
+        "scanned_at": {
+          "type": "timestamp"
+        },
+        "event_type": {
+          "type": "text"
+        },
+        "location": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "scan_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "shipment_id"
+          ],
+          "ref_table": "shipments",
+          "ref_columns": [
+            "shipment_id"
+          ]
+        },
+        {
+          "columns": [
+            "stop_id"
+          ],
+          "ref_table": "stops",
+          "ref_columns": [
+            "stop_id"
+          ]
+        }
+      ]
+    },
+    "delivery_status": {
+      "columns": {
+        "status_id": {
+          "type": "integer"
+        },
+        "shipment_id": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "text"
+        },
+        "changed_at": {
+          "type": "timestamp"
+        }
+      },
+      "primary_key": [
+        "status_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "shipment_id"
+          ],
+          "ref_table": "shipments",
+          "ref_columns": [
+            "shipment_id"
+          ]
+        }
+      ]
+    }
+  }
+}

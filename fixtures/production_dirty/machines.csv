@@ -1,0 +1,17 @@
+masch_id,bez,typ_txt,werk,inbetrieb,nennleist_kw
+1,M01-Pre,Press,München,2017-07-26,11.3
+2,M02-Wel,Welder,Köln,2017-09-19,12.6
+3,M03-Pac,Packer,Leipzig,2017-11-13,13.9
+4,M04-Ove,Oven,Stuttgart,2018-01-07,15.2
+5,M05-Mil,Mill,Hamburg,2018-03-03,16.5
+6,M06-CNC,CNC,München,2018-04-27,17.8
+7,M07-Pre,Press,Köln,2018-06-21,19.1
+8,M08-Wel,Welder,Leipzig,2018-08-15,20.4
+9,M09-Pac,Packer,Stuttgart,2018-10-09,21.7
+10,M10-Ove,Oven,Hamburg,2018-12-03,23.0
+11,M11-Mil,Mill,München,2019-01-27,24.3
+12,M12-CNC,CNC,Köln,2019-03-23,25.6
+13,M13-Pre,Press,Leipzig,2019-05-17,26.9
+14,M14-Wel,Welder,Stuttgart,2019-07-11,28.2
+15,M15-Pac,Packer,Hamburg,2019-09-04,29.5
+16,M16-Ove,Oven,München,2019-10-29,30.8

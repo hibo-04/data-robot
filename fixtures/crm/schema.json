@@ -1,0 +1,190 @@
+{
+  "name": "crm",
+  "tables": {
+    "accounts": {
+      "columns": {
+        "account_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "industry": {
+          "type": "text"
+        },
+        "region": {
+          "type": "text"
+        },
+        "country": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        },
+        "employees": {
+          "type": "integer"
+        },
+        "annual_revenue": {
+          "type": "decimal"
+        },
+        "status": {
+          "type": "text"
+        },
+        "owner": {
+          "type": "text"
+        },
+        "website": {
+          "type": "text"
+        },
+        "created_at": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "account_id"
+      ]
+    },
+    "contacts": {
+      "columns": {
+        "id": {
+          "type": "integer"
+        },
+        "account_nr": {
+          "type": "integer"
+        },
+        "first_name": {
+          "type": "text"
+        },
+        "last_name": {
+          "type": "text"
+        },
+        "email": {
+          "type": "text"
+        },
+        "phone": {
+          "type": "text"
+        },
+        "mobile": {
+          "type": "text",
+          "nullable": true
+        },
+        "role": {
+          "type": "text"
+        },
+        "department": {
+          "type": "text"
+        },
+        "title": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        },
+        "language": {
+          "type": "text"
+        },
+        "is_primary": {
+          "type": "boolean"
+        },
+        "last_seen": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": []
+    },
+    "opportunities": {
+      "columns": {
+        "opp_id": {
+          "type": "integer"
+        },
+        "account_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "stage": {
+          "type": "text"
+        },
+        "type": {
+          "type": "text"
+        },
+        "source": {
+          "type": "text"
+        },
+        "amount": {
+          "type": "decimal"
+        },
+        "probability": {
+          "type": "integer"
+        },
+        "weighted_amount": {
+          "type": "decimal"
+        },
+        "close_date": {
+          "type": "date"
+        },
+        "created_at": {
+          "type": "date"
+        },
+        "owner": {
+          "type": "text"
+        },
+        "competitor": {
+          "type": "text",
+          "nullable": true
+        }
+      },
+      "primary_key": [
+        "opp_id"
+      ],
+      "foreign_keys": []
+    },
+    "activities": {
+      "columns": {
+        "activity_id": {
+          "type": "integer"
+        },
+        "contact_id": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "text"
+        },
+        "activity_date": {
+          "type": "date"
+        },
+        "duration_min": {
+          "type": "integer"
+        },
+        "outcome": {
+          "type": "text"
+        },
+        "completed": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "text",
+          "nullable": true
+        }
+      },
+      "primary_key": [
+        "activity_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "contact_id"
+          ],
+          "ref_table": "contacts",
+          "ref_columns": [
+            "id"
+          ]
+        }
+      ]
+    }
+  }
+}

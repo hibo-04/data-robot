@@ -1,0 +1,5 @@
+tarif_id,tarif_bez,preis_m,inkl_seats,aktiv_kz
+1,Basic,39,2,true
+2,Pro,99,8,true
+3,Scale,249,30,true
+4,Ent,799,150,true

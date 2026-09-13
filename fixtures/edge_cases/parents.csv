@@ -1,0 +1,6 @@
+parent_id,name,city,opened_on,active
+1,P1,München,2020-02-10,true
+2,P2,Köln,2020-03-21,true
+3,P3,Berlin,2020-04-30,true
+4,P4,Stuttgart,2020-06-09,false
+5,P5,Leipzig,2020-07-19,true

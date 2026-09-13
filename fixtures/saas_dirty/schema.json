@@ -1,0 +1,274 @@
+{
+  "name": "saas_dirty",
+  "tables": {
+    "plans": {
+      "columns": {
+        "tarif_id": {
+          "type": "integer"
+        },
+        "tarif_bez": {
+          "type": "text"
+        },
+        "preis_m": {
+          "type": "decimal"
+        },
+        "inkl_seats": {
+          "type": "integer"
+        },
+        "aktiv_kz": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "tarif_id"
+      ]
+    },
+    "companies": {
+      "columns": {
+        "firma_nr": {
+          "type": "integer"
+        },
+        "firmenname": {
+          "type": "text"
+        },
+        "branche": {
+          "type": "text"
+        },
+        "land": {
+          "type": "text"
+        },
+        "ort": {
+          "type": "text"
+        },
+        "anlagedat": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "firma_nr"
+      ]
+    },
+    "users": {
+      "columns": {
+        "usr_id": {
+          "type": "integer"
+        },
+        "firma_nr": {
+          "type": "integer"
+        },
+        "mail": {
+          "type": "text"
+        },
+        "rolle_txt": {
+          "type": "text"
+        },
+        "aktiv_kz": {
+          "type": "boolean"
+        },
+        "anlagedat": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "usr_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "firma_nr"
+          ],
+          "ref_table": "companies",
+          "ref_columns": [
+            "firma_nr"
+          ]
+        }
+      ]
+    },
+    "subscriptions": {
+      "columns": {
+        "abo_nr": {
+          "type": "integer"
+        },
+        "firma_nr": {
+          "type": "integer"
+        },
+        "tarif_id": {
+          "type": "integer"
+        },
+        "anz_seats": {
+          "type": "integer"
+        },
+        "mrr_betrag": {
+          "type": "decimal"
+        },
+        "arr_betrag": {
+          "type": "decimal"
+        },
+        "start_dat": {
+          "type": "date"
+        },
+        "ende_dat": {
+          "type": "date",
+          "nullable": true
+        },
+        "stat_txt": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "abo_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "firma_nr"
+          ],
+          "ref_table": "companies",
+          "ref_columns": [
+            "firma_nr"
+          ]
+        }
+      ]
+    },
+    "invoices": {
+      "columns": {
+        "rg_nr": {
+          "type": "integer"
+        },
+        "abo_nr": {
+          "type": "integer"
+        },
+        "firma_nr": {
+          "type": "integer"
+        },
+        "rg_dat": {
+          "type": "date"
+        },
+        "netto_betrag": {
+          "type": "decimal"
+        },
+        "mwst_betrag": {
+          "type": "decimal"
+        },
+        "brutto": {
+          "type": "decimal"
+        },
+        "gezahlt": {
+          "type": "decimal"
+        },
+        "rest": {
+          "type": "decimal"
+        },
+        "stat_txt": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "rg_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "abo_nr"
+          ],
+          "ref_table": "subscriptions",
+          "ref_columns": [
+            "abo_nr"
+          ]
+        }
+      ]
+    },
+    "payments": {
+      "columns": {
+        "zahl_id": {
+          "type": "integer"
+        },
+        "rg_nr": {
+          "type": "integer"
+        },
+        "zahl_dat": {
+          "type": "date"
+        },
+        "betrag": {
+          "type": "decimal"
+        },
+        "weg": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "zahl_id"
+      ],
+      "foreign_keys": []
+    },
+    "feature_usage": {
+      "columns": {
+        "nutz_id": {
+          "type": "integer"
+        },
+        "firma_nr": {
+          "type": "integer"
+        },
+        "usr_id": {
+          "type": "integer"
+        },
+        "feat": {
+          "type": "text"
+        },
+        "am": {
+          "type": "date"
+        },
+        "anz_events": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "nutz_id"
+      ],
+      "foreign_keys": []
+    },
+    "tickets": {
+      "columns": {
+        "tix_nr": {
+          "type": "integer"
+        },
+        "firma_nr": {
+          "type": "integer"
+        },
+        "usr_id": {
+          "type": "integer",
+          "nullable": true
+        },
+        "auf_dat": {
+          "type": "date"
+        },
+        "typ_txt": {
+          "type": "text"
+        },
+        "prio": {
+          "type": "text"
+        },
+        "bearb_h": {
+          "type": "decimal"
+        },
+        "stat_txt": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "tix_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "firma_nr"
+          ],
+          "ref_table": "companies",
+          "ref_columns": [
+            "firma_nr"
+          ]
+        }
+      ]
+    }
+  }
+}

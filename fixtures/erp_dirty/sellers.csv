@@ -1,0 +1,19 @@
+vk_id,verk_name,mail,gebiet,soll_umsatz,aktiv_kz
+1,Ben Schmidt,vk1@handel.local,München,192000,true
+2,Clara Weber,vk2@handel.local,Köln,204000,true
+3,David Fischer,vk3@handel.local,Leipzig,216000,true
+4,Elena Meyer,vk4@handel.local,Stuttgart,228000,true
+5,Felix Wagner,vk5@handel.local,Hamburg,240000,true
+6,Greta Becker,vk6@handel.local,München,252000,true
+7,Hans Hoffmann,vk7@handel.local,Köln,264000,true
+8,Ines Schäfer,vk8@handel.local,Leipzig,276000,true
+9,Jonas Koch,vk9@handel.local,Stuttgart,288000,true
+10,Anna Müller,vk10@handel.local,Hamburg,300000,true
+11,Ben Schmidt,vk11@handel.local,München,312000,true
+12,Clara Weber,vk12@handel.local,Köln,324000,true
+13,David Fischer,vk13@handel.local,Leipzig,336000,true
+14,Elena Meyer,vk14@handel.local,Stuttgart,348000,true
+15,Felix Wagner,vk15@handel.local,Hamburg,360000,true
+16,Greta Becker,vk16@handel.local,München,372000,false
+17,Hans Hoffmann,vk17@handel.local,Köln,384000,true
+18,Ines Schäfer,vk18@handel.local,Leipzig,396000,true

@@ -1,0 +1,4 @@
+id,maybe_value,status,flag,comment
+1,,open,true,all nulls
+2,,open,false,
+3,,closed,true,done

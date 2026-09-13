@@ -1,0 +1,5 @@
+# Local link setup: this machine has no gcc/cc. A rust-lld wrapper links
+# pure-Rust crates. Do not add dependencies whose build.rs needs a C compiler.
+[target.x86_64-unknown-linux-gnu]
+linker = "/home/johannes-haller/Dokumente/Projekte/data-robot/tools/ld.sh"
+rustflags = ["-C", "linker-flavor=ld.lld"]

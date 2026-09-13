@@ -1,0 +1,13 @@
+machine_id,name,type,site,install_date,rated_power_kw
+1,Press-01,Press,München,2018-02-10,9.7
+2,Welder-02,Welder,Köln,2018-03-22,11.4
+3,Packer-03,Packer,Leipzig,2018-05-01,13.1
+4,Oven-04,Oven,Stuttgart,2018-06-10,14.8
+5,Mill-05,Mill,Hamburg,2018-07-20,16.5
+6,CNC-06,CNC,München,2018-08-29,18.2
+7,Press-07,Press,Köln,2018-10-08,19.9
+8,Welder-08,Welder,Leipzig,2018-11-17,21.6
+9,Packer-09,Packer,Stuttgart,2018-12-27,23.3
+10,Oven-10,Oven,Hamburg,2019-02-05,25.0
+11,Mill-11,Mill,München,2019-03-17,26.7
+12,CNC-12,CNC,Köln,2019-04-26,28.4

@@ -1,0 +1,190 @@
+{
+  "name": "edge_cases",
+  "tables": {
+    "parents": {
+      "columns": {
+        "parent_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        },
+        "opened_on": {
+          "type": "date"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "parent_id"
+      ]
+    },
+    "children": {
+      "columns": {
+        "child_id": {
+          "type": "integer"
+        },
+        "parent_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "note": {
+          "type": "text"
+        },
+        "weight": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "child_id"
+      ],
+      "foreign_keys": []
+    },
+    "decoys": {
+      "columns": {
+        "parent_id": {
+          "type": "text"
+        },
+        "label": {
+          "type": "text"
+        },
+        "comment": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "parent_id"
+      ]
+    },
+    "empty_things": {
+      "columns": {
+        "id": {
+          "type": "integer"
+        },
+        "label": {
+          "type": "text"
+        },
+        "extra": {
+          "type": "text",
+          "nullable": true
+        }
+      },
+      "primary_key": [
+        "id"
+      ]
+    },
+    "messy": {
+      "columns": {
+        "id": {
+          "type": "integer"
+        },
+        "maybe_value": {
+          "type": "decimal",
+          "nullable": true
+        },
+        "status": {
+          "type": "text"
+        },
+        "flag": {
+          "type": "boolean"
+        },
+        "comment": {
+          "type": "text",
+          "nullable": true
+        }
+      },
+      "primary_key": [
+        "id"
+      ]
+    },
+    "computed": {
+      "columns": {
+        "row_id": {
+          "type": "integer"
+        },
+        "alpha": {
+          "type": "decimal"
+        },
+        "beta": {
+          "type": "decimal"
+        },
+        "gamma": {
+          "type": "decimal"
+        },
+        "delta": {
+          "type": "decimal"
+        },
+        "eps": {
+          "type": "decimal"
+        },
+        "eta": {
+          "type": "decimal"
+        },
+        "label": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "row_id"
+      ]
+    },
+    "bundles": {
+      "columns": {
+        "bundle_id": {
+          "type": "integer"
+        },
+        "span": {
+          "type": "decimal"
+        },
+        "color": {
+          "type": "text"
+        },
+        "sealed": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "bundle_id"
+      ]
+    },
+    "pieces": {
+      "columns": {
+        "piece_id": {
+          "type": "integer"
+        },
+        "bundle_id": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "decimal"
+        },
+        "material": {
+          "type": "text"
+        },
+        "scrap": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "piece_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "bundle_id"
+          ],
+          "ref_table": "bundles",
+          "ref_columns": [
+            "bundle_id"
+          ]
+        }
+      ]
+    }
+  }
+}

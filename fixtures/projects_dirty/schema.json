@@ -1,0 +1,315 @@
+{
+  "name": "projects_dirty",
+  "tables": {
+    "customers": {
+      "columns": {
+        "kd_nr": {
+          "type": "integer"
+        },
+        "kd_name": {
+          "type": "text"
+        },
+        "branche": {
+          "type": "text"
+        },
+        "ort": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "kd_nr"
+      ]
+    },
+    "teams": {
+      "columns": {
+        "team_nr": {
+          "type": "integer"
+        },
+        "team_bez": {
+          "type": "text"
+        },
+        "standort": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "team_nr"
+      ]
+    },
+    "employees": {
+      "columns": {
+        "ma_nr": {
+          "type": "integer"
+        },
+        "team_nr": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "rolle_txt": {
+          "type": "text"
+        },
+        "stdsatz": {
+          "type": "decimal"
+        },
+        "eintritt": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "ma_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "team_nr"
+          ],
+          "ref_table": "teams",
+          "ref_columns": [
+            "team_nr"
+          ]
+        }
+      ]
+    },
+    "projects": {
+      "columns": {
+        "prj_nr": {
+          "type": "integer"
+        },
+        "kd_nr": {
+          "type": "integer",
+          "nullable": true
+        },
+        "prj_bez": {
+          "type": "text"
+        },
+        "typ_txt": {
+          "type": "text"
+        },
+        "start_dat": {
+          "type": "date"
+        },
+        "stat_txt": {
+          "type": "text"
+        },
+        "std_ist": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "prj_nr"
+      ],
+      "foreign_keys": []
+    },
+    "assignments": {
+      "columns": {
+        "zuord_id": {
+          "type": "integer"
+        },
+        "prj_nr": {
+          "type": "integer"
+        },
+        "ma_nr": {
+          "type": "integer"
+        },
+        "rolle_txt": {
+          "type": "text"
+        },
+        "ausl_pct": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "zuord_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "prj_nr"
+          ],
+          "ref_table": "projects",
+          "ref_columns": [
+            "prj_nr"
+          ]
+        }
+      ]
+    },
+    "tasks": {
+      "columns": {
+        "aufg_nr": {
+          "type": "integer"
+        },
+        "prj_nr": {
+          "type": "integer"
+        },
+        "ma_nr": {
+          "type": "integer"
+        },
+        "titel": {
+          "type": "text"
+        },
+        "plan_h": {
+          "type": "integer"
+        },
+        "stat_txt": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "aufg_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "prj_nr"
+          ],
+          "ref_table": "projects",
+          "ref_columns": [
+            "prj_nr"
+          ]
+        }
+      ]
+    },
+    "time_entries": {
+      "columns": {
+        "zeit_id": {
+          "type": "integer"
+        },
+        "prj_nr": {
+          "type": "integer"
+        },
+        "ma_nr": {
+          "type": "integer"
+        },
+        "tag": {
+          "type": "date"
+        },
+        "std": {
+          "type": "decimal"
+        },
+        "stdsatz": {
+          "type": "decimal"
+        },
+        "betrag": {
+          "type": "decimal"
+        },
+        "fakt_kz": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "zeit_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "prj_nr"
+          ],
+          "ref_table": "projects",
+          "ref_columns": [
+            "prj_nr"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "columns": {
+        "ko_nr": {
+          "type": "integer"
+        },
+        "prj_nr": {
+          "type": "integer"
+        },
+        "ko_dat": {
+          "type": "date"
+        },
+        "art": {
+          "type": "text"
+        },
+        "betrag": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "ko_nr"
+      ],
+      "foreign_keys": []
+    },
+    "invoices": {
+      "columns": {
+        "rg_nr": {
+          "type": "integer"
+        },
+        "prj_nr": {
+          "type": "integer"
+        },
+        "kd_nr": {
+          "type": "integer"
+        },
+        "rg_dat": {
+          "type": "date"
+        },
+        "netto_betrag": {
+          "type": "decimal"
+        },
+        "mwst_betrag": {
+          "type": "decimal"
+        },
+        "brutto": {
+          "type": "decimal"
+        },
+        "stat_txt": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "rg_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "prj_nr"
+          ],
+          "ref_table": "projects",
+          "ref_columns": [
+            "prj_nr"
+          ]
+        }
+      ]
+    },
+    "budgets": {
+      "columns": {
+        "bdg_id": {
+          "type": "integer"
+        },
+        "prj_nr": {
+          "type": "integer"
+        },
+        "budget_betrag": {
+          "type": "decimal"
+        },
+        "verbraucht": {
+          "type": "decimal"
+        },
+        "rest": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "bdg_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "prj_nr"
+          ],
+          "ref_table": "projects",
+          "ref_columns": [
+            "prj_nr"
+          ]
+        }
+      ]
+    }
+  }
+}

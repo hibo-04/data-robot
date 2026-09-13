@@ -1,0 +1,307 @@
+{
+  "name": "erp_dirty",
+  "tables": {
+    "sellers": {
+      "columns": {
+        "vk_id": {
+          "type": "integer"
+        },
+        "verk_name": {
+          "type": "text"
+        },
+        "mail": {
+          "type": "text"
+        },
+        "gebiet": {
+          "type": "text"
+        },
+        "soll_umsatz": {
+          "type": "decimal"
+        },
+        "aktiv_kz": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "vk_id"
+      ]
+    },
+    "suppliers": {
+      "columns": {
+        "lief_nr": {
+          "type": "integer"
+        },
+        "lief_bez": {
+          "type": "text"
+        },
+        "land": {
+          "type": "text"
+        },
+        "ort": {
+          "type": "text"
+        },
+        "lieferzeit_t": {
+          "type": "integer"
+        },
+        "bewertung": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "lief_nr"
+      ]
+    },
+    "customers": {
+      "columns": {
+        "kd_nr": {
+          "type": "integer"
+        },
+        "firmenname": {
+          "type": "text"
+        },
+        "branche": {
+          "type": "text"
+        },
+        "ort": {
+          "type": "text"
+        },
+        "vk_id": {
+          "type": "integer",
+          "nullable": true
+        },
+        "zahlziel": {
+          "type": "text"
+        },
+        "kreditlimit": {
+          "type": "decimal"
+        },
+        "angelegt": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "kd_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "vk_id"
+          ],
+          "ref_table": "sellers",
+          "ref_columns": [
+            "vk_id"
+          ]
+        }
+      ]
+    },
+    "products": {
+      "columns": {
+        "art_nr": {
+          "type": "text"
+        },
+        "bezeichng": {
+          "type": "text"
+        },
+        "warengrp": {
+          "type": "text"
+        },
+        "lief_nr": {
+          "type": "integer"
+        },
+        "ek_preis": {
+          "type": "decimal"
+        },
+        "vk_preis": {
+          "type": "decimal"
+        },
+        "lager_stk": {
+          "type": "integer"
+        },
+        "mwst_satz": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "art_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "lief_nr"
+          ],
+          "ref_table": "suppliers",
+          "ref_columns": [
+            "lief_nr"
+          ]
+        }
+      ]
+    },
+    "orders": {
+      "columns": {
+        "auftr_nr": {
+          "type": "integer"
+        },
+        "kd_nr": {
+          "type": "integer",
+          "nullable": true
+        },
+        "vk_id": {
+          "type": "integer",
+          "nullable": true
+        },
+        "auftr_dat": {
+          "type": "date"
+        },
+        "status_txt": {
+          "type": "text"
+        },
+        "waehrung": {
+          "type": "text"
+        },
+        "bst_nr": {
+          "type": "text",
+          "nullable": true
+        },
+        "netto_betrag": {
+          "type": "decimal"
+        },
+        "fracht": {
+          "type": "decimal"
+        },
+        "notiz": {
+          "type": "text",
+          "nullable": true
+        }
+      },
+      "primary_key": [
+        "auftr_nr"
+      ],
+      "foreign_keys": []
+    },
+    "order_items": {
+      "columns": {
+        "pos_id": {
+          "type": "integer"
+        },
+        "auftr_nr": {
+          "type": "integer"
+        },
+        "art_nr": {
+          "type": "text"
+        },
+        "menge": {
+          "type": "integer"
+        },
+        "einzelpr": {
+          "type": "decimal"
+        },
+        "pos_rabatt": {
+          "type": "decimal"
+        },
+        "pos_netto": {
+          "type": "decimal"
+        },
+        "gewicht_kg": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "pos_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "auftr_nr"
+          ],
+          "ref_table": "orders",
+          "ref_columns": [
+            "auftr_nr"
+          ]
+        }
+      ]
+    },
+    "invoices": {
+      "columns": {
+        "rg_nr": {
+          "type": "integer"
+        },
+        "auftr_nr": {
+          "type": "integer"
+        },
+        "rg_dat": {
+          "type": "date"
+        },
+        "faellig": {
+          "type": "date"
+        },
+        "netto_betrag": {
+          "type": "decimal"
+        },
+        "mwst_betrag": {
+          "type": "decimal"
+        },
+        "brutto": {
+          "type": "decimal"
+        },
+        "gezahlt": {
+          "type": "decimal"
+        },
+        "rest": {
+          "type": "decimal"
+        },
+        "status_txt": {
+          "type": "text"
+        },
+        "mahnstufe": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "rg_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "auftr_nr"
+          ],
+          "ref_table": "orders",
+          "ref_columns": [
+            "auftr_nr"
+          ]
+        }
+      ]
+    },
+    "returns": {
+      "columns": {
+        "ret_id": {
+          "type": "integer"
+        },
+        "pos_id": {
+          "type": "integer"
+        },
+        "ret_dat": {
+          "type": "date"
+        },
+        "ret_menge": {
+          "type": "integer"
+        },
+        "grund": {
+          "type": "text"
+        },
+        "erstattung": {
+          "type": "decimal"
+        },
+        "bearb_geb": {
+          "type": "decimal"
+        },
+        "netto_erst": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "ret_id"
+      ],
+      "foreign_keys": []
+    }
+  }
+}

@@ -1,0 +1,26 @@
+vehicle_id,plate,type,depot_id,capacity_kg
+1,HH-SP 101,van,2,3500
+2,HH-SP 102,truck,3,12000
+3,HH-SP 103,truck,4,3500
+4,HH-SP 104,trailer,5,12000
+5,HH-SP 105,van,6,24000
+6,HH-SP 106,van,7,800
+7,HH-SP 107,trailer,8,3500
+8,HH-SP 108,truck,1,800
+9,HH-SP 109,truck,2,800
+10,HH-SP 110,truck,3,800
+11,HH-SP 111,trailer,4,12000
+12,HH-SP 112,trailer,5,800
+13,HH-SP 113,truck,6,12000
+14,HH-SP 114,truck,7,12000
+15,HH-SP 115,truck,8,3500
+16,HH-SP 116,truck,1,24000
+17,HH-SP 117,trailer,2,3500
+18,HH-SP 118,truck,3,24000
+19,HH-SP 119,trailer,4,3500
+20,HH-SP 120,truck,5,24000
+21,HH-SP 121,trailer,6,12000
+22,HH-SP 122,van,7,24000
+23,HH-SP 123,van,8,800
+24,HH-SP 124,van,1,12000
+25,HH-SP 125,truck,2,800

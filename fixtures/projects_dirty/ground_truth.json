@@ -1,0 +1,66 @@
+{
+  "relationships": [
+    {
+      "from": "employees.team_nr",
+      "to": "teams.team_nr"
+    },
+    {
+      "from": "projects.kd_nr",
+      "to": "customers.kd_nr"
+    },
+    {
+      "from": "assignments.prj_nr",
+      "to": "projects.prj_nr"
+    },
+    {
+      "from": "assignments.ma_nr",
+      "to": "employees.ma_nr"
+    },
+    {
+      "from": "tasks.prj_nr",
+      "to": "projects.prj_nr"
+    },
+    {
+      "from": "tasks.ma_nr",
+      "to": "employees.ma_nr"
+    },
+    {
+      "from": "time_entries.prj_nr",
+      "to": "projects.prj_nr"
+    },
+    {
+      "from": "time_entries.ma_nr",
+      "to": "employees.ma_nr"
+    },
+    {
+      "from": "costs.prj_nr",
+      "to": "projects.prj_nr"
+    },
+    {
+      "from": "invoices.prj_nr",
+      "to": "projects.prj_nr"
+    },
+    {
+      "from": "invoices.kd_nr",
+      "to": "customers.kd_nr"
+    },
+    {
+      "from": "budgets.prj_nr",
+      "to": "projects.prj_nr"
+    }
+  ],
+  "kpis": [
+    {
+      "name": "Billable Hours",
+      "definition": "SUM(time_entries.std)"
+    },
+    {
+      "name": "Project Cost",
+      "definition": "SUM(costs.betrag)"
+    },
+    {
+      "name": "Invoice Amount",
+      "definition": "SUM(invoices.brutto)"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+---
+description: Grow identity templates, dictionaries, and similar catalogs when tests reveal a missing pattern
+alwaysApply: true
+---
+
+# Extend catalogs instead of hardcoding
+
+When a test or fixture reveals a pattern the engine should catch but does not, **add the missing catalog entry** and a small assertion. Do not hardcode table/column names in the core, and do not leave the gap because similar examples already exist.
+
+This applies to every template- or dictionary-like store: identity templates, `dictionaries/` packs, synonym lists, role hints, report templates.
+
+Full policy: `docs/model-review.md` (section “Catalogs grow with tests”).

@@ -1,0 +1,370 @@
+{
+  "name": "projects_clean",
+  "tables": {
+    "customers": {
+      "columns": {
+        "customer_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "industry": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "customer_id"
+      ]
+    },
+    "teams": {
+      "columns": {
+        "team_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "location": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "team_id"
+      ]
+    },
+    "employees": {
+      "columns": {
+        "employee_id": {
+          "type": "integer"
+        },
+        "team_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "role": {
+          "type": "text"
+        },
+        "hourly_rate": {
+          "type": "decimal"
+        },
+        "hired_on": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "employee_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "team_id"
+          ],
+          "ref_table": "teams",
+          "ref_columns": [
+            "team_id"
+          ]
+        }
+      ]
+    },
+    "projects": {
+      "columns": {
+        "project_id": {
+          "type": "integer"
+        },
+        "customer_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "type": {
+          "type": "text"
+        },
+        "started_on": {
+          "type": "date"
+        },
+        "status": {
+          "type": "text"
+        },
+        "logged_hours": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "project_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "customer_id"
+          ],
+          "ref_table": "customers",
+          "ref_columns": [
+            "customer_id"
+          ]
+        }
+      ]
+    },
+    "assignments": {
+      "columns": {
+        "assignment_id": {
+          "type": "integer"
+        },
+        "project_id": {
+          "type": "integer"
+        },
+        "employee_id": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "text"
+        },
+        "allocation_pct": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "assignment_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "project_id"
+          ],
+          "ref_table": "projects",
+          "ref_columns": [
+            "project_id"
+          ]
+        },
+        {
+          "columns": [
+            "employee_id"
+          ],
+          "ref_table": "employees",
+          "ref_columns": [
+            "employee_id"
+          ]
+        }
+      ]
+    },
+    "tasks": {
+      "columns": {
+        "task_id": {
+          "type": "integer"
+        },
+        "project_id": {
+          "type": "integer"
+        },
+        "assignee_id": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "text"
+        },
+        "estimate_hours": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "task_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "project_id"
+          ],
+          "ref_table": "projects",
+          "ref_columns": [
+            "project_id"
+          ]
+        },
+        {
+          "columns": [
+            "assignee_id"
+          ],
+          "ref_table": "employees",
+          "ref_columns": [
+            "employee_id"
+          ]
+        }
+      ]
+    },
+    "time_entries": {
+      "columns": {
+        "entry_id": {
+          "type": "integer"
+        },
+        "project_id": {
+          "type": "integer"
+        },
+        "employee_id": {
+          "type": "integer"
+        },
+        "worked_on": {
+          "type": "date"
+        },
+        "hours": {
+          "type": "decimal"
+        },
+        "hourly_rate": {
+          "type": "decimal"
+        },
+        "bill_amount": {
+          "type": "decimal"
+        },
+        "billable": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "entry_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "project_id"
+          ],
+          "ref_table": "projects",
+          "ref_columns": [
+            "project_id"
+          ]
+        },
+        {
+          "columns": [
+            "employee_id"
+          ],
+          "ref_table": "employees",
+          "ref_columns": [
+            "employee_id"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "columns": {
+        "cost_id": {
+          "type": "integer"
+        },
+        "project_id": {
+          "type": "integer"
+        },
+        "cost_date": {
+          "type": "date"
+        },
+        "category": {
+          "type": "text"
+        },
+        "amount": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "cost_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "project_id"
+          ],
+          "ref_table": "projects",
+          "ref_columns": [
+            "project_id"
+          ]
+        }
+      ]
+    },
+    "invoices": {
+      "columns": {
+        "invoice_id": {
+          "type": "integer"
+        },
+        "project_id": {
+          "type": "integer"
+        },
+        "customer_id": {
+          "type": "integer"
+        },
+        "invoice_date": {
+          "type": "date"
+        },
+        "net_amount": {
+          "type": "decimal"
+        },
+        "tax_amount": {
+          "type": "decimal"
+        },
+        "gross_amount": {
+          "type": "decimal"
+        },
+        "status": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "invoice_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "project_id"
+          ],
+          "ref_table": "projects",
+          "ref_columns": [
+            "project_id"
+          ]
+        },
+        {
+          "columns": [
+            "customer_id"
+          ],
+          "ref_table": "customers",
+          "ref_columns": [
+            "customer_id"
+          ]
+        }
+      ]
+    },
+    "budgets": {
+      "columns": {
+        "budget_id": {
+          "type": "integer"
+        },
+        "project_id": {
+          "type": "integer"
+        },
+        "amount": {
+          "type": "decimal"
+        },
+        "spent_amount": {
+          "type": "decimal"
+        },
+        "remaining_amount": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "budget_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "project_id"
+          ],
+          "ref_table": "projects",
+          "ref_columns": [
+            "project_id"
+          ]
+        }
+      ]
+    }
+  }
+}

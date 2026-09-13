@@ -1,0 +1,172 @@
+{
+  "name": "ecommerce_clean",
+  "tables": {
+    "customers": {
+      "columns": {
+        "customer_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "email": {
+          "type": "text"
+        },
+        "region": {
+          "type": "text"
+        },
+        "country": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        },
+        "segment": {
+          "type": "text"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "customer_id"
+      ]
+    },
+    "products": {
+      "columns": {
+        "product_id": {
+          "type": "integer"
+        },
+        "sku": {
+          "type": "text"
+        },
+        "name": {
+          "type": "text"
+        },
+        "brand": {
+          "type": "text"
+        },
+        "category": {
+          "type": "text"
+        },
+        "subcategory": {
+          "type": "text"
+        },
+        "cost": {
+          "type": "decimal"
+        },
+        "price": {
+          "type": "decimal"
+        },
+        "in_stock": {
+          "type": "integer"
+        },
+        "discontinued": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "product_id"
+      ]
+    },
+    "orders": {
+      "columns": {
+        "order_id": {
+          "type": "integer"
+        },
+        "customer_id": {
+          "type": "integer"
+        },
+        "order_date": {
+          "type": "date"
+        },
+        "shipped_date": {
+          "type": "date"
+        },
+        "status": {
+          "type": "text"
+        },
+        "channel": {
+          "type": "text"
+        },
+        "currency": {
+          "type": "text"
+        },
+        "payment_method": {
+          "type": "text"
+        },
+        "warehouse": {
+          "type": "text"
+        },
+        "net_amount": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "order_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "customer_id"
+          ],
+          "ref_table": "customers",
+          "ref_columns": [
+            "customer_id"
+          ]
+        }
+      ]
+    },
+    "order_items": {
+      "columns": {
+        "item_id": {
+          "type": "integer"
+        },
+        "order_id": {
+          "type": "integer"
+        },
+        "product_id": {
+          "type": "integer"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "unit_price": {
+          "type": "decimal"
+        },
+        "line_amount": {
+          "type": "decimal"
+        },
+        "warehouse": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "item_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "order_id"
+          ],
+          "ref_table": "orders",
+          "ref_columns": [
+            "order_id"
+          ]
+        },
+        {
+          "columns": [
+            "product_id"
+          ],
+          "ref_table": "products",
+          "ref_columns": [
+            "product_id"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "pack": "commerce",
+  "version": 1,
+  "description": "Commerce overlay. Only applies when entity context matches. Never a global quantity→Units Sold map.",
+  "entries": [
+    {
+      "id": "commerce.revenue",
+      "tokens": ["net_amount", "revenue", "umsatz", "netto_betrag"],
+      "required_role": "measure",
+      "entity_hints": ["order", "sale"],
+      "aggregation": "sum",
+      "label": "Revenue",
+      "confidence_boost": 0.12
+    },
+    {
+      "id": "commerce.units_sold",
+      "tokens": ["quantity", "qty", "units", "menge"],
+      "required_role": "measure",
+      "entity_hints": ["order_item", "orderitem", "order_line", "invoice_item"],
+      "aggregation": "sum",
+      "label": "Units Sold",
+      "confidence_boost": 0.1
+    },
+    {
+      "id": "commerce.discount",
+      "tokens": ["discount", "rabatt"],
+      "required_role": "measure",
+      "entity_hints": ["order", "order_item", "invoice"],
+      "aggregation": "sum",
+      "label": "Discount Total",
+      "confidence_boost": 0.06
+    },
+    {
+      "id": "commerce.refund",
+      "tokens": ["refund", "erstattung", "netto_erst"],
+      "required_role": "measure",
+      "entity_hints": ["return", "refund"],
+      "aggregation": "sum",
+      "label": "Refunds",
+      "confidence_boost": 0.06
+    },
+    {
+      "id": "commerce.shipping",
+      "tokens": ["shipping"],
+      "required_role": "measure",
+      "entity_hints": ["order", "invoice", "shipment"],
+      "aggregation": "sum",
+      "label": "Shipping Cost",
+      "confidence_boost": 0.05
+    }
+  ],
+  "derived": [
+    {
+      "id": "commerce.aov",
+      "name": "Average Order Value",
+      "requires_labels": ["Revenue"],
+      "requires_structural_names": ["Order Count"],
+      "expression": "Revenue / Order Count",
+      "confidence": 0.72,
+      "reason": "commerce derived KPI: Revenue / Order Count"
+    },
+    {
+      "id": "commerce.margin",
+      "name": "Margin",
+      "requires_labels": ["Revenue", "Cost"],
+      "requires_structural_names": [],
+      "expression": "Revenue - Cost",
+      "confidence": 0.8,
+      "reason": "commerce derived KPI: Revenue - Cost"
+    }
+  ]
+}

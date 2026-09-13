@@ -1,0 +1,274 @@
+{
+  "name": "production_clean",
+  "tables": {
+    "machines": {
+      "columns": {
+        "machine_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "type": {
+          "type": "text"
+        },
+        "site": {
+          "type": "text"
+        },
+        "install_date": {
+          "type": "date"
+        },
+        "rated_power_kw": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "machine_id"
+      ]
+    },
+    "shifts": {
+      "columns": {
+        "shift_id": {
+          "type": "integer"
+        },
+        "shift_date": {
+          "type": "date"
+        },
+        "name": {
+          "type": "text"
+        },
+        "crew": {
+          "type": "text"
+        },
+        "planned_minutes": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "shift_id"
+      ]
+    },
+    "production_orders": {
+      "columns": {
+        "order_id": {
+          "type": "integer"
+        },
+        "machine_id": {
+          "type": "integer"
+        },
+        "shift_id": {
+          "type": "integer"
+        },
+        "part_no": {
+          "type": "text"
+        },
+        "planned_qty": {
+          "type": "integer"
+        },
+        "completed_qty": {
+          "type": "integer"
+        },
+        "scrap_qty": {
+          "type": "integer"
+        },
+        "started_on": {
+          "type": "date"
+        },
+        "status": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "order_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "machine_id"
+          ],
+          "ref_table": "machines",
+          "ref_columns": [
+            "machine_id"
+          ]
+        },
+        {
+          "columns": [
+            "shift_id"
+          ],
+          "ref_table": "shifts",
+          "ref_columns": [
+            "shift_id"
+          ]
+        }
+      ]
+    },
+    "workpieces": {
+      "columns": {
+        "workpiece_id": {
+          "type": "integer"
+        },
+        "order_id": {
+          "type": "integer"
+        },
+        "machine_id": {
+          "type": "integer"
+        },
+        "serial": {
+          "type": "text"
+        },
+        "net_weight_g": {
+          "type": "decimal"
+        },
+        "scrap_g": {
+          "type": "decimal"
+        },
+        "gross_weight_g": {
+          "type": "decimal"
+        },
+        "cycle_seconds": {
+          "type": "integer"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "workpiece_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "order_id"
+          ],
+          "ref_table": "production_orders",
+          "ref_columns": [
+            "order_id"
+          ]
+        },
+        {
+          "columns": [
+            "machine_id"
+          ],
+          "ref_table": "machines",
+          "ref_columns": [
+            "machine_id"
+          ]
+        }
+      ]
+    },
+    "sensor_readings": {
+      "columns": {
+        "reading_id": {
+          "type": "integer"
+        },
+        "machine_id": {
+          "type": "integer"
+        },
+        "recorded_at": {
+          "type": "timestamp"
+        },
+        "temperature_c": {
+          "type": "decimal"
+        },
+        "vibration_rms": {
+          "type": "decimal"
+        },
+        "power_kw": {
+          "type": "decimal"
+        },
+        "energy_kwh": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "reading_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "machine_id"
+          ],
+          "ref_table": "machines",
+          "ref_columns": [
+            "machine_id"
+          ]
+        }
+      ]
+    },
+    "faults": {
+      "columns": {
+        "fault_id": {
+          "type": "integer"
+        },
+        "machine_id": {
+          "type": "integer"
+        },
+        "opened_at": {
+          "type": "timestamp"
+        },
+        "code": {
+          "type": "text"
+        },
+        "severity": {
+          "type": "text"
+        },
+        "duration_min": {
+          "type": "integer"
+        },
+        "resolved": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "fault_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "machine_id"
+          ],
+          "ref_table": "machines",
+          "ref_columns": [
+            "machine_id"
+          ]
+        }
+      ]
+    },
+    "maintenances": {
+      "columns": {
+        "maintenance_id": {
+          "type": "integer"
+        },
+        "machine_id": {
+          "type": "integer"
+        },
+        "performed_on": {
+          "type": "date"
+        },
+        "kind": {
+          "type": "text"
+        },
+        "duration_min": {
+          "type": "integer"
+        },
+        "cost": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "maintenance_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "machine_id"
+          ],
+          "ref_table": "machines",
+          "ref_columns": [
+            "machine_id"
+          ]
+        }
+      ]
+    }
+  }
+}

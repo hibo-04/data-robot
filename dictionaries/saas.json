@@ -1,0 +1,26 @@
+{
+  "pack": "saas",
+  "version": 1,
+  "description": "Subscription billing labels.",
+  "entries": [
+    {
+      "id": "saas.mrr",
+      "tokens": ["mrr", "mrr_betrag"],
+      "required_role": "measure",
+      "entity_hints": ["subscription", "abo"],
+      "aggregation": "sum",
+      "label": "MRR",
+      "confidence_boost": 0.1
+    },
+    {
+      "id": "saas.arr",
+      "tokens": ["arr", "arr_betrag"],
+      "required_role": "measure",
+      "entity_hints": ["subscription", "abo"],
+      "aggregation": "sum",
+      "label": "ARR",
+      "confidence_boost": 0.1
+    }
+  ],
+  "derived": []
+}

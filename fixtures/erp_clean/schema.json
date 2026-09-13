@@ -1,0 +1,319 @@
+{
+  "name": "erp_clean",
+  "tables": {
+    "sellers": {
+      "columns": {
+        "seller_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "email": {
+          "type": "text"
+        },
+        "region": {
+          "type": "text"
+        },
+        "quota": {
+          "type": "decimal"
+        },
+        "is_active": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "seller_id"
+      ]
+    },
+    "suppliers": {
+      "columns": {
+        "supplier_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "country": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        },
+        "lead_time_days": {
+          "type": "integer"
+        },
+        "rating": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "supplier_id"
+      ]
+    },
+    "customers": {
+      "columns": {
+        "customer_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "industry": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        },
+        "country": {
+          "type": "text"
+        },
+        "seller_id": {
+          "type": "integer"
+        },
+        "payment_terms": {
+          "type": "text"
+        },
+        "is_active": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "customer_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "seller_id"
+          ],
+          "ref_table": "sellers",
+          "ref_columns": [
+            "seller_id"
+          ]
+        }
+      ]
+    },
+    "products": {
+      "columns": {
+        "product_id": {
+          "type": "integer"
+        },
+        "sku": {
+          "type": "text"
+        },
+        "name": {
+          "type": "text"
+        },
+        "category": {
+          "type": "text"
+        },
+        "supplier_id": {
+          "type": "integer"
+        },
+        "unit_cost": {
+          "type": "decimal"
+        },
+        "list_price": {
+          "type": "decimal"
+        },
+        "in_stock": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "product_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "supplier_id"
+          ],
+          "ref_table": "suppliers",
+          "ref_columns": [
+            "supplier_id"
+          ]
+        }
+      ]
+    },
+    "orders": {
+      "columns": {
+        "order_id": {
+          "type": "integer"
+        },
+        "customer_id": {
+          "type": "integer"
+        },
+        "seller_id": {
+          "type": "integer"
+        },
+        "order_date": {
+          "type": "date"
+        },
+        "status": {
+          "type": "text"
+        },
+        "currency": {
+          "type": "text"
+        },
+        "po_number": {
+          "type": "text"
+        },
+        "net_amount": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "order_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "customer_id"
+          ],
+          "ref_table": "customers",
+          "ref_columns": [
+            "customer_id"
+          ]
+        },
+        {
+          "columns": [
+            "seller_id"
+          ],
+          "ref_table": "sellers",
+          "ref_columns": [
+            "seller_id"
+          ]
+        }
+      ]
+    },
+    "order_items": {
+      "columns": {
+        "item_id": {
+          "type": "integer"
+        },
+        "order_id": {
+          "type": "integer"
+        },
+        "product_id": {
+          "type": "integer"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "unit_price": {
+          "type": "decimal"
+        },
+        "line_amount": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "item_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "order_id"
+          ],
+          "ref_table": "orders",
+          "ref_columns": [
+            "order_id"
+          ]
+        },
+        {
+          "columns": [
+            "product_id"
+          ],
+          "ref_table": "products",
+          "ref_columns": [
+            "product_id"
+          ]
+        }
+      ]
+    },
+    "invoices": {
+      "columns": {
+        "invoice_id": {
+          "type": "integer"
+        },
+        "order_id": {
+          "type": "integer"
+        },
+        "invoice_date": {
+          "type": "date"
+        },
+        "due_date": {
+          "type": "date"
+        },
+        "net_amount": {
+          "type": "decimal"
+        },
+        "tax_amount": {
+          "type": "decimal"
+        },
+        "gross_amount": {
+          "type": "decimal"
+        },
+        "paid_amount": {
+          "type": "decimal"
+        },
+        "remaining_amount": {
+          "type": "decimal"
+        },
+        "status": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "invoice_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "order_id"
+          ],
+          "ref_table": "orders",
+          "ref_columns": [
+            "order_id"
+          ]
+        }
+      ]
+    },
+    "returns": {
+      "columns": {
+        "return_id": {
+          "type": "integer"
+        },
+        "item_id": {
+          "type": "integer"
+        },
+        "return_date": {
+          "type": "date"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "reason": {
+          "type": "text"
+        },
+        "refund_amount": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "return_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "item_id"
+          ],
+          "ref_table": "order_items",
+          "ref_columns": [
+            "item_id"
+          ]
+        }
+      ]
+    }
+  }
+}

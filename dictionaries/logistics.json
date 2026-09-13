@@ -1,0 +1,26 @@
+{
+  "pack": "logistics",
+  "version": 1,
+  "description": "Freight and delivery labels.",
+  "entries": [
+    {
+      "id": "logistics.delay",
+      "tokens": ["delay", "delay_min", "versp", "versp_min"],
+      "required_role": "measure",
+      "entity_hints": ["shipment", "send"],
+      "aggregation": "sum",
+      "label": "Delay",
+      "confidence_boost": 0.08
+    },
+    {
+      "id": "logistics.distance",
+      "tokens": ["distance", "km", "km_summe", "total_distance"],
+      "required_role": "measure",
+      "entity_hints": ["route", "tour"],
+      "aggregation": "sum",
+      "label": "Distance",
+      "confidence_boost": 0.08
+    }
+  ],
+  "derived": []
+}

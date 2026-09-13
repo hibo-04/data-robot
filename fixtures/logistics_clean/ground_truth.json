@@ -1,0 +1,66 @@
+{
+  "relationships": [
+    {
+      "from": "vehicles.depot_id",
+      "to": "depots.depot_id"
+    },
+    {
+      "from": "drivers.depot_id",
+      "to": "depots.depot_id"
+    },
+    {
+      "from": "routes.depot_id",
+      "to": "depots.depot_id"
+    },
+    {
+      "from": "routes.vehicle_id",
+      "to": "vehicles.vehicle_id"
+    },
+    {
+      "from": "routes.driver_id",
+      "to": "drivers.driver_id"
+    },
+    {
+      "from": "shipments.route_id",
+      "to": "routes.route_id"
+    },
+    {
+      "from": "shipments.depot_id",
+      "to": "depots.depot_id"
+    },
+    {
+      "from": "stops.route_id",
+      "to": "routes.route_id"
+    },
+    {
+      "from": "stops.shipment_id",
+      "to": "shipments.shipment_id"
+    },
+    {
+      "from": "scan_events.shipment_id",
+      "to": "shipments.shipment_id"
+    },
+    {
+      "from": "scan_events.stop_id",
+      "to": "stops.stop_id"
+    },
+    {
+      "from": "delivery_status.shipment_id",
+      "to": "shipments.shipment_id"
+    }
+  ],
+  "kpis": [
+    {
+      "name": "Shipment Count",
+      "definition": "COUNT(DISTINCT shipments.shipment_id)"
+    },
+    {
+      "name": "Delay",
+      "definition": "SUM(shipments.delay_min)"
+    },
+    {
+      "name": "Distance",
+      "definition": "SUM(routes.total_distance_km)"
+    }
+  ]
+}

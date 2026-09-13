@@ -1,0 +1,21 @@
+supplier_id,name,country,city,postal_code,lead_time_days,rating,currency,payment_terms,is_preferred,min_order_value,contact_email
+1,Supplier 01,DE,Hamburg,10037,14,3,EUR,NET45,false,0,purchasing1@supplier.example
+2,Supplier 02,CN,München,10074,30,4,EUR,NET30,false,0,purchasing2@supplier.example
+3,Supplier 03,AT,Berlin,10111,30,4,EUR,NET45,false,1000,purchasing3@supplier.example
+4,Supplier 04,AT,Shanghai,10148,30,3,EUR,NET45,true,1000,purchasing4@supplier.example
+5,Supplier 05,PL,Stuttgart,10185,10,3,USD,NET30,false,0,purchasing5@supplier.example
+6,Supplier 06,NL,München,10222,14,3,USD,NET30,false,1000,purchasing6@supplier.example
+7,Supplier 07,CN,München,10259,21,2,USD,NET60,false,250,purchasing7@supplier.example
+8,Supplier 08,DE,Hamburg,10296,10,3,EUR,NET45,true,0,purchasing8@supplier.example
+9,Supplier 09,NL,Stuttgart,10333,21,5,USD,NET45,false,500,purchasing9@supplier.example
+10,Supplier 10,PL,Berlin,10370,14,5,EUR,NET45,false,250,purchasing10@supplier.example
+11,Supplier 11,AT,Shanghai,10407,21,3,EUR,NET60,false,0,purchasing11@supplier.example
+12,Supplier 12,AT,Hamburg,10444,14,4,USD,NET30,true,250,purchasing12@supplier.example
+13,Supplier 13,CN,Leipzig,10481,10,5,CNY,PREPAY,false,1000,purchasing13@supplier.example
+14,Supplier 14,AT,Stuttgart,10518,10,3,USD,PREPAY,false,1000,purchasing14@supplier.example
+15,Supplier 15,PL,Berlin,10555,10,4,CNY,NET30,false,0,purchasing15@supplier.example
+16,Supplier 16,DE,Köln,10592,10,5,CNY,NET30,true,1000,purchasing16@supplier.example
+17,Supplier 17,NL,Vienna,10629,21,4,USD,NET30,false,0,purchasing17@supplier.example
+18,Supplier 18,CN,Stuttgart,10666,14,2,USD,PREPAY,false,250,purchasing18@supplier.example
+19,Supplier 19,NL,Hamburg,10703,14,4,EUR,NET30,false,500,purchasing19@supplier.example
+20,Supplier 20,CN,Vienna,10740,10,3,USD,NET45,true,0,purchasing20@supplier.example

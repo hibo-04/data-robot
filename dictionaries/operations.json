@@ -1,0 +1,35 @@
+{
+  "pack": "operations",
+  "version": 1,
+  "description": "Production and maintenance labels. Entity-scoped; never a global duration map.",
+  "entries": [
+    {
+      "id": "operations.produced_units",
+      "tokens": ["completed_qty", "ist_stk", "completed"],
+      "required_role": "measure",
+      "entity_hints": ["production_order"],
+      "aggregation": "sum",
+      "label": "Produced Units",
+      "confidence_boost": 0.1
+    },
+    {
+      "id": "operations.downtime",
+      "tokens": ["duration", "dauer", "dauer_min"],
+      "required_role": "measure",
+      "entity_hints": ["fault", "stoer"],
+      "aggregation": "sum",
+      "label": "Downtime",
+      "confidence_boost": 0.1
+    },
+    {
+      "id": "operations.maintenance_cost",
+      "tokens": ["cost", "kosten"],
+      "required_role": "measure",
+      "entity_hints": ["maintenance", "wart"],
+      "aggregation": "sum",
+      "label": "Maintenance Cost",
+      "confidence_boost": 0.08
+    }
+  ],
+  "derived": []
+}

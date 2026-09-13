@@ -1,0 +1,11 @@
+bundle_id,span,color,sealed
+1,5,black,true
+2,5,black,false
+3,10,white,true
+4,6,blue,false
+5,7,oak,true
+6,6,oak,false
+7,10,white,true
+8,10,black,false
+9,9,oak,true
+10,4,oak,false

@@ -1,0 +1,50 @@
+{
+  "relationships": [
+    {
+      "from": "production_orders.masch_id",
+      "to": "machines.masch_id"
+    },
+    {
+      "from": "production_orders.schicht_id",
+      "to": "shifts.schicht_id"
+    },
+    {
+      "from": "workpieces.pa_nr",
+      "to": "production_orders.pa_nr"
+    },
+    {
+      "from": "workpieces.masch_id",
+      "to": "machines.masch_id"
+    },
+    {
+      "from": "sensor_readings.masch_id",
+      "to": "machines.masch_id"
+    },
+    {
+      "from": "faults.masch_id",
+      "to": "machines.masch_id"
+    },
+    {
+      "from": "maintenances.masch_id",
+      "to": "machines.masch_id"
+    }
+  ],
+  "kpis": [
+    {
+      "name": "Produced Units",
+      "definition": "SUM(production_orders.ist_stk)"
+    },
+    {
+      "name": "Downtime",
+      "definition": "SUM(faults.dauer_min)"
+    },
+    {
+      "name": "Energy",
+      "definition": "SUM(sensor_readings.energie_kwh)"
+    },
+    {
+      "name": "Maintenance Cost",
+      "definition": "SUM(maintenances.kosten)"
+    }
+  ]
+}

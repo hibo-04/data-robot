@@ -1,0 +1,471 @@
+{
+  "name": "ecommerce_dirty",
+  "tables": {
+    "sales_reps": {
+      "columns": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "email": {
+          "type": "text"
+        },
+        "phone": {
+          "type": "text"
+        },
+        "region": {
+          "type": "text"
+        },
+        "office_city": {
+          "type": "text"
+        },
+        "team": {
+          "type": "text"
+        },
+        "hire_date": {
+          "type": "date"
+        },
+        "last_review": {
+          "type": "date"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "quota": {
+          "type": "decimal"
+        },
+        "commission_pct": {
+          "type": "decimal"
+        },
+        "manager_id": {
+          "type": "integer",
+          "nullable": true
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": []
+    },
+    "suppliers": {
+      "columns": {
+        "supplier_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "country": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        },
+        "postal_code": {
+          "type": "text"
+        },
+        "lead_time_days": {
+          "type": "integer"
+        },
+        "rating": {
+          "type": "integer"
+        },
+        "currency": {
+          "type": "text"
+        },
+        "payment_terms": {
+          "type": "text"
+        },
+        "is_preferred": {
+          "type": "boolean"
+        },
+        "min_order_value": {
+          "type": "decimal"
+        },
+        "contact_email": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "supplier_id"
+      ]
+    },
+    "customers": {
+      "columns": {
+        "id": {
+          "type": "integer"
+        },
+        "customer_name": {
+          "type": "text"
+        },
+        "legal_form": {
+          "type": "text"
+        },
+        "region": {
+          "type": "text"
+        },
+        "country": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        },
+        "postal_code": {
+          "type": "text"
+        },
+        "segment": {
+          "type": "text"
+        },
+        "industry": {
+          "type": "text"
+        },
+        "language": {
+          "type": "text"
+        },
+        "sales_rep_id": {
+          "type": "integer",
+          "nullable": true
+        },
+        "created_at": {
+          "type": "date"
+        },
+        "last_contact_at": {
+          "type": "date"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "credit_limit": {
+          "type": "decimal"
+        },
+        "employee_count": {
+          "type": "integer"
+        },
+        "vat_id": {
+          "type": "text"
+        },
+        "email": {
+          "type": "text"
+        },
+        "phone": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "sales_rep_id"
+          ],
+          "ref_table": "sales_reps",
+          "ref_columns": [
+            "id"
+          ]
+        }
+      ]
+    },
+    "products": {
+      "columns": {
+        "sku": {
+          "type": "text"
+        },
+        "ean": {
+          "type": "text"
+        },
+        "product_name": {
+          "type": "text"
+        },
+        "brand": {
+          "type": "text"
+        },
+        "category": {
+          "type": "text"
+        },
+        "subcategory": {
+          "type": "text"
+        },
+        "color": {
+          "type": "text"
+        },
+        "supplier_id": {
+          "type": "integer"
+        },
+        "origin_country": {
+          "type": "text"
+        },
+        "unit_cost": {
+          "type": "decimal"
+        },
+        "list_price": {
+          "type": "decimal"
+        },
+        "vat_rate": {
+          "type": "decimal"
+        },
+        "weight_kg": {
+          "type": "decimal"
+        },
+        "stock_qty": {
+          "type": "integer"
+        },
+        "reorder_level": {
+          "type": "integer"
+        },
+        "warranty_months": {
+          "type": "integer"
+        },
+        "discontinued": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "sku"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "supplier_id"
+          ],
+          "ref_table": "suppliers",
+          "ref_columns": [
+            "supplier_id"
+          ]
+        }
+      ]
+    },
+    "orders": {
+      "columns": {
+        "order_id": {
+          "type": "integer"
+        },
+        "customer_nr": {
+          "type": "integer",
+          "nullable": true
+        },
+        "order_date": {
+          "type": "date"
+        },
+        "promised_date": {
+          "type": "date"
+        },
+        "shipped_date": {
+          "type": "date",
+          "nullable": true
+        },
+        "status": {
+          "type": "text"
+        },
+        "channel": {
+          "type": "text"
+        },
+        "priority": {
+          "type": "text"
+        },
+        "currency": {
+          "type": "text"
+        },
+        "payment_method": {
+          "type": "text"
+        },
+        "warehouse": {
+          "type": "text"
+        },
+        "billing_city": {
+          "type": "text"
+        },
+        "shipping_city": {
+          "type": "text"
+        },
+        "net_amount": {
+          "type": "decimal"
+        },
+        "discount_amount": {
+          "type": "decimal"
+        },
+        "shipping_cost": {
+          "type": "decimal"
+        },
+        "packing_cost": {
+          "type": "decimal"
+        },
+        "sales_rep_id": {
+          "type": "integer",
+          "nullable": true
+        },
+        "po_number": {
+          "type": "text",
+          "nullable": true
+        },
+        "notes": {
+          "type": "text",
+          "nullable": true
+        }
+      },
+      "primary_key": [
+        "order_id"
+      ],
+      "foreign_keys": []
+    },
+    "order_items": {
+      "columns": {
+        "item_id": {
+          "type": "integer"
+        },
+        "order_id": {
+          "type": "integer"
+        },
+        "product_sku": {
+          "type": "text"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "unit_price": {
+          "type": "decimal"
+        },
+        "line_discount": {
+          "type": "decimal"
+        },
+        "line_total": {
+          "type": "decimal"
+        },
+        "warehouse": {
+          "type": "text"
+        },
+        "line_status": {
+          "type": "text"
+        },
+        "gift_wrap": {
+          "type": "boolean"
+        },
+        "weight_g": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "item_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "order_id"
+          ],
+          "ref_table": "orders",
+          "ref_columns": [
+            "order_id"
+          ]
+        }
+      ]
+    },
+    "invoices": {
+      "columns": {
+        "invoice_id": {
+          "type": "integer"
+        },
+        "order_id": {
+          "type": "integer"
+        },
+        "invoice_date": {
+          "type": "date"
+        },
+        "due_date": {
+          "type": "date"
+        },
+        "currency": {
+          "type": "text"
+        },
+        "payment_method": {
+          "type": "text"
+        },
+        "gross_amount": {
+          "type": "decimal"
+        },
+        "tax_amount": {
+          "type": "decimal"
+        },
+        "paid_amount": {
+          "type": "decimal"
+        },
+        "remaining_amount": {
+          "type": "decimal"
+        },
+        "status": {
+          "type": "text"
+        },
+        "dunning_level": {
+          "type": "integer"
+        },
+        "cancelled_at": {
+          "type": "date",
+          "nullable": true
+        }
+      },
+      "primary_key": [
+        "invoice_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "order_id"
+          ],
+          "ref_table": "orders",
+          "ref_columns": [
+            "order_id"
+          ]
+        }
+      ]
+    },
+    "returns": {
+      "columns": {
+        "return_id": {
+          "type": "integer"
+        },
+        "order_item_id": {
+          "type": "integer"
+        },
+        "return_date": {
+          "type": "date"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "reason": {
+          "type": "text"
+        },
+        "condition": {
+          "type": "text"
+        },
+        "warehouse": {
+          "type": "text"
+        },
+        "carrier": {
+          "type": "text"
+        },
+        "tracking_nr": {
+          "type": "text",
+          "nullable": true
+        },
+        "restocked": {
+          "type": "boolean"
+        },
+        "refund_amount": {
+          "type": "decimal"
+        },
+        "restock_fee": {
+          "type": "decimal"
+        },
+        "net_refund": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "return_id"
+      ],
+      "foreign_keys": []
+    }
+  }
+}

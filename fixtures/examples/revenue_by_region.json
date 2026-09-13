@@ -1,0 +1,16 @@
+{
+  "measures": [
+    "revenue"
+  ],
+  "dimensions": [
+    "region"
+  ],
+  "filters": [
+    {
+      "field": "order_date",
+      "operator": "year_equals",
+      "value": 2025
+    }
+  ],
+  "limit": 10
+}

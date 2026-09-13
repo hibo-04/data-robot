@@ -1,0 +1,19 @@
+[package]
+name = "analytics-web"
+version = "0.1.0"
+edition = "2021"
+description = "Minimal local web UI for the analytics engine"
+license = "MIT"
+
+[dependencies]
+analytics = { path = ".." }
+axum = "0.8"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+
+[dev-dependencies]
+http-body-util = "0.1"
+tower = { version = "0.5", features = ["util"] }

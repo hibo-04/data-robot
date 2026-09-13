@@ -1,0 +1,237 @@
+{
+  "name": "production_dirty",
+  "tables": {
+    "machines": {
+      "columns": {
+        "masch_id": {
+          "type": "integer"
+        },
+        "bez": {
+          "type": "text"
+        },
+        "typ_txt": {
+          "type": "text"
+        },
+        "werk": {
+          "type": "text"
+        },
+        "inbetrieb": {
+          "type": "date"
+        },
+        "nennleist_kw": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "masch_id"
+      ]
+    },
+    "shifts": {
+      "columns": {
+        "schicht_id": {
+          "type": "integer"
+        },
+        "tag": {
+          "type": "date"
+        },
+        "schicht_bez": {
+          "type": "text"
+        },
+        "kolonne": {
+          "type": "text"
+        },
+        "plan_min": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "schicht_id"
+      ]
+    },
+    "production_orders": {
+      "columns": {
+        "pa_nr": {
+          "type": "integer"
+        },
+        "masch_id": {
+          "type": "integer"
+        },
+        "schicht_id": {
+          "type": "integer",
+          "nullable": true
+        },
+        "teil_nr": {
+          "type": "text"
+        },
+        "plan_stk": {
+          "type": "integer"
+        },
+        "ist_stk": {
+          "type": "integer"
+        },
+        "ausbeute_pct": {
+          "type": "decimal"
+        },
+        "start_dat": {
+          "type": "date"
+        },
+        "stat": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "pa_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "masch_id"
+          ],
+          "ref_table": "machines",
+          "ref_columns": [
+            "masch_id"
+          ]
+        }
+      ]
+    },
+    "workpieces": {
+      "columns": {
+        "wt_id": {
+          "type": "integer"
+        },
+        "pa_nr": {
+          "type": "integer"
+        },
+        "masch_id": {
+          "type": "integer"
+        },
+        "snr": {
+          "type": "text"
+        },
+        "nettogew_g": {
+          "type": "decimal"
+        },
+        "ausschuss_g": {
+          "type": "decimal"
+        },
+        "bruttogew_g": {
+          "type": "decimal"
+        },
+        "zyklus_s": {
+          "type": "integer"
+        },
+        "iO": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "wt_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "pa_nr"
+          ],
+          "ref_table": "production_orders",
+          "ref_columns": [
+            "pa_nr"
+          ]
+        }
+      ]
+    },
+    "sensor_readings": {
+      "columns": {
+        "mess_id": {
+          "type": "integer"
+        },
+        "masch_id": {
+          "type": "integer"
+        },
+        "ts": {
+          "type": "timestamp"
+        },
+        "temp_c": {
+          "type": "decimal"
+        },
+        "vib_rms": {
+          "type": "decimal"
+        },
+        "leist_kw": {
+          "type": "decimal"
+        },
+        "energie_kwh": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "mess_id"
+      ],
+      "foreign_keys": []
+    },
+    "faults": {
+      "columns": {
+        "stoer_id": {
+          "type": "integer"
+        },
+        "masch_id": {
+          "type": "integer"
+        },
+        "aufgetreten": {
+          "type": "timestamp"
+        },
+        "code": {
+          "type": "text"
+        },
+        "prio": {
+          "type": "text"
+        },
+        "dauer_min": {
+          "type": "integer"
+        },
+        "behoben_kz": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "stoer_id"
+      ],
+      "foreign_keys": []
+    },
+    "maintenances": {
+      "columns": {
+        "wart_id": {
+          "type": "integer"
+        },
+        "masch_id": {
+          "type": "integer"
+        },
+        "am": {
+          "type": "date"
+        },
+        "art": {
+          "type": "text"
+        },
+        "dauer_min": {
+          "type": "integer"
+        },
+        "kosten": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "wart_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "masch_id"
+          ],
+          "ref_table": "machines",
+          "ref_columns": [
+            "masch_id"
+          ]
+        }
+      ]
+    }
+  }
+}

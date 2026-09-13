@@ -1,0 +1,321 @@
+{
+  "name": "saas_clean",
+  "tables": {
+    "plans": {
+      "columns": {
+        "plan_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "monthly_price": {
+          "type": "decimal"
+        },
+        "included_seats": {
+          "type": "integer"
+        },
+        "is_active": {
+          "type": "boolean"
+        }
+      },
+      "primary_key": [
+        "plan_id"
+      ]
+    },
+    "companies": {
+      "columns": {
+        "company_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "industry": {
+          "type": "text"
+        },
+        "country": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        },
+        "created_at": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "company_id"
+      ]
+    },
+    "users": {
+      "columns": {
+        "user_id": {
+          "type": "integer"
+        },
+        "company_id": {
+          "type": "integer"
+        },
+        "email": {
+          "type": "text"
+        },
+        "role": {
+          "type": "text"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "user_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "company_id"
+          ],
+          "ref_table": "companies",
+          "ref_columns": [
+            "company_id"
+          ]
+        }
+      ]
+    },
+    "subscriptions": {
+      "columns": {
+        "subscription_id": {
+          "type": "integer"
+        },
+        "company_id": {
+          "type": "integer"
+        },
+        "plan_id": {
+          "type": "integer"
+        },
+        "seats": {
+          "type": "integer"
+        },
+        "mrr": {
+          "type": "decimal"
+        },
+        "arr": {
+          "type": "decimal"
+        },
+        "started_on": {
+          "type": "date"
+        },
+        "ended_on": {
+          "type": "date",
+          "nullable": true
+        },
+        "status": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "subscription_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "company_id"
+          ],
+          "ref_table": "companies",
+          "ref_columns": [
+            "company_id"
+          ]
+        },
+        {
+          "columns": [
+            "plan_id"
+          ],
+          "ref_table": "plans",
+          "ref_columns": [
+            "plan_id"
+          ]
+        }
+      ]
+    },
+    "invoices": {
+      "columns": {
+        "invoice_id": {
+          "type": "integer"
+        },
+        "subscription_id": {
+          "type": "integer"
+        },
+        "company_id": {
+          "type": "integer"
+        },
+        "invoice_date": {
+          "type": "date"
+        },
+        "subtotal": {
+          "type": "decimal"
+        },
+        "tax_amount": {
+          "type": "decimal"
+        },
+        "total_amount": {
+          "type": "decimal"
+        },
+        "paid_amount": {
+          "type": "decimal"
+        },
+        "remaining_amount": {
+          "type": "decimal"
+        },
+        "status": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "invoice_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "subscription_id"
+          ],
+          "ref_table": "subscriptions",
+          "ref_columns": [
+            "subscription_id"
+          ]
+        },
+        {
+          "columns": [
+            "company_id"
+          ],
+          "ref_table": "companies",
+          "ref_columns": [
+            "company_id"
+          ]
+        }
+      ]
+    },
+    "payments": {
+      "columns": {
+        "payment_id": {
+          "type": "integer"
+        },
+        "invoice_id": {
+          "type": "integer"
+        },
+        "paid_on": {
+          "type": "date"
+        },
+        "amount": {
+          "type": "decimal"
+        },
+        "method": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "payment_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "invoice_id"
+          ],
+          "ref_table": "invoices",
+          "ref_columns": [
+            "invoice_id"
+          ]
+        }
+      ]
+    },
+    "feature_usage": {
+      "columns": {
+        "usage_id": {
+          "type": "integer"
+        },
+        "company_id": {
+          "type": "integer"
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "feature": {
+          "type": "text"
+        },
+        "used_on": {
+          "type": "date"
+        },
+        "events": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "usage_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "company_id"
+          ],
+          "ref_table": "companies",
+          "ref_columns": [
+            "company_id"
+          ]
+        },
+        {
+          "columns": [
+            "user_id"
+          ],
+          "ref_table": "users",
+          "ref_columns": [
+            "user_id"
+          ]
+        }
+      ]
+    },
+    "tickets": {
+      "columns": {
+        "ticket_id": {
+          "type": "integer"
+        },
+        "company_id": {
+          "type": "integer"
+        },
+        "user_id": {
+          "type": "integer",
+          "nullable": true
+        },
+        "opened_on": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "priority": {
+          "type": "text"
+        },
+        "handle_hours": {
+          "type": "decimal"
+        },
+        "status": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "ticket_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "company_id"
+          ],
+          "ref_table": "companies",
+          "ref_columns": [
+            "company_id"
+          ]
+        }
+      ]
+    }
+  }
+}

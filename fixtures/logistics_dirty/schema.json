@@ -1,0 +1,258 @@
+{
+  "name": "logistics_dirty",
+  "tables": {
+    "depots": {
+      "columns": {
+        "nl_id": {
+          "type": "integer"
+        },
+        "nl_bez": {
+          "type": "text"
+        },
+        "ort": {
+          "type": "text"
+        },
+        "kap_pal": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "nl_id"
+      ]
+    },
+    "vehicles": {
+      "columns": {
+        "fz_nr": {
+          "type": "integer"
+        },
+        "kennzeichen": {
+          "type": "text"
+        },
+        "fz_typ": {
+          "type": "text"
+        },
+        "nl_id": {
+          "type": "integer"
+        },
+        "nutzlast_kg": {
+          "type": "integer"
+        }
+      },
+      "primary_key": [
+        "fz_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "nl_id"
+          ],
+          "ref_table": "depots",
+          "ref_columns": [
+            "nl_id"
+          ]
+        }
+      ]
+    },
+    "drivers": {
+      "columns": {
+        "fahrer_nr": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text"
+        },
+        "nl_id": {
+          "type": "integer"
+        },
+        "fuehrerschein": {
+          "type": "text"
+        },
+        "eintritt": {
+          "type": "date"
+        }
+      },
+      "primary_key": [
+        "fahrer_nr"
+      ],
+      "foreign_keys": []
+    },
+    "routes": {
+      "columns": {
+        "tour_nr": {
+          "type": "integer"
+        },
+        "nl_id": {
+          "type": "integer"
+        },
+        "fz_nr": {
+          "type": "integer"
+        },
+        "fahrer_nr": {
+          "type": "integer",
+          "nullable": true
+        },
+        "tour_dat": {
+          "type": "date"
+        },
+        "plan_stops": {
+          "type": "integer"
+        },
+        "km_summe": {
+          "type": "decimal"
+        }
+      },
+      "primary_key": [
+        "tour_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "nl_id"
+          ],
+          "ref_table": "depots",
+          "ref_columns": [
+            "nl_id"
+          ]
+        }
+      ]
+    },
+    "shipments": {
+      "columns": {
+        "send_nr": {
+          "type": "integer"
+        },
+        "tour_nr": {
+          "type": "integer"
+        },
+        "nl_id": {
+          "type": "integer"
+        },
+        "empf": {
+          "type": "text"
+        },
+        "soll_ts": {
+          "type": "timestamp"
+        },
+        "ist_ts": {
+          "type": "timestamp",
+          "nullable": true
+        },
+        "versp_min": {
+          "type": "integer",
+          "nullable": true
+        },
+        "gew_kg": {
+          "type": "decimal"
+        },
+        "stat_txt": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "send_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "tour_nr"
+          ],
+          "ref_table": "routes",
+          "ref_columns": [
+            "tour_nr"
+          ]
+        }
+      ]
+    },
+    "stops": {
+      "columns": {
+        "stop_nr": {
+          "type": "integer"
+        },
+        "tour_nr": {
+          "type": "integer"
+        },
+        "send_nr": {
+          "type": "integer"
+        },
+        "lfd": {
+          "type": "integer"
+        },
+        "ort": {
+          "type": "text"
+        },
+        "etappe_km": {
+          "type": "decimal"
+        },
+        "standzeit_min": {
+          "type": "integer"
+        },
+        "ankunft": {
+          "type": "timestamp"
+        },
+        "abfahrt": {
+          "type": "timestamp"
+        }
+      },
+      "primary_key": [
+        "stop_nr"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "tour_nr"
+          ],
+          "ref_table": "routes",
+          "ref_columns": [
+            "tour_nr"
+          ]
+        }
+      ]
+    },
+    "scan_events": {
+      "columns": {
+        "scan_id": {
+          "type": "integer"
+        },
+        "send_nr": {
+          "type": "integer"
+        },
+        "stop_nr": {
+          "type": "integer"
+        },
+        "scan_ts": {
+          "type": "timestamp"
+        },
+        "evt": {
+          "type": "text"
+        },
+        "ort_txt": {
+          "type": "text"
+        }
+      },
+      "primary_key": [
+        "scan_id"
+      ],
+      "foreign_keys": []
+    },
+    "delivery_status": {
+      "columns": {
+        "hist_id": {
+          "type": "integer"
+        },
+        "send_nr": {
+          "type": "integer"
+        },
+        "stat_txt": {
+          "type": "text"
+        },
+        "geaendert": {
+          "type": "timestamp"
+        }
+      },
+      "primary_key": [
+        "hist_id"
+      ],
+      "foreign_keys": []
+    }
+  }
+}
