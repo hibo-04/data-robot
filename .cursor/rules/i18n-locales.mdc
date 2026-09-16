@@ -1,0 +1,19 @@
+---
+description: Every user-visible copy change must update all active locales
+alwaysApply: true
+---
+
+# Locales travel together
+
+The product UI is multilingual from the start (German and English; more locales may be added). Policy: `docs/web-app-construct.md` (section Locale-Stack).
+
+When you add, edit, or remove any user-visible string (UI copy, errors, toasts, empty states, emails, in-app legal snippets, notifications), **update every currently active locale in the same change**. Missing, empty, or stale keys in one language are incomplete work.
+
+Do not concatenate translatable fragments. Do not leave a new English (or German) string without its counterpart. Engine reason codes stay language-agnostic; translated text lives in catalogs, not hardcoded in one language only.
+
+Where things live in `app/` (`octa-app`):
+
+- Catalogs: `app/locales/de.json`, `app/locales/en.json` — ICU MessageFormat, flat keys. A new string = a new key in **every** file plus a `Msg` variant in `app/src/i18n/mod.rs`. The tests there fail on missing or orphaned keys, unparsable messages, argument mismatches between languages, and markup in a catalog.
+- Product terms and state labels: `docs/glossary.md`. Use its words; add a row before inventing a new term.
+- Fallback UI language is `de` (`Language::FALLBACK`). Numbers and dates are formatted through `Locale`, never by string-building.
+- Rendering escapes at the edge (`app/src/pages.rs`); catalogs contain text, not HTML.

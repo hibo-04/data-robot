@@ -1,0 +1,11 @@
+{
+  "app.name": "Octa",
+  "language.de": "Deutsch",
+  "language.en": "English",
+  "hello.title": "Hello.",
+  "hello.body": "{app} is still an empty shell. The locale stack is in place: language, formats and time zones are architecture, not an afterthought.",
+  "hello.language_current": "Active language: {language, select, de {Deutsch} en {English} other {{language}}}",
+  "hello.languages_active": "{count, plural, one {# active language} other {# active languages}}, maintained together with every change.",
+  "hello.fallback_note": "Without a stored preference or a browser hint, the interface falls back to German.",
+  "hello.switch_label": "Switch language"
+}

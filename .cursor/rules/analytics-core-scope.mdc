@@ -5,16 +5,17 @@ alwaysApply: true
 
 # Analytics core V1 scope
 
-This repo is a local proof of concept for a **source-agnostic analytics engine**.
+This repo holds a **source-agnostic analytics engine** (`analytics`, repo root) plus two adapters:
 
-A minimal local web UI lives in `web/` (`analytics-web`). It is an adapter around the library.
+- `web/` (`analytics-web`): minimal local PoC review UI, login-free, throwaway. Do not extend it into the product.
+- `app/` (`octa-app`, working title Octa): the B2B product app, built package by package along `docs/roadmap.md`. Accounts, organisations, sessions, locale, jobs and the control-plane DB belong **there**, never in `analytics`.
 
-Do not add: auth, billing, multi-tenancy, cloud/k8s, extra DB connectors (Oracle, SQL Server, SAP, …), scheduling, or SaaS infrastructure.
+Do not add to `analytics` or to `web/`: auth, billing, multi-tenancy, cloud/k8s, scheduling, or SaaS infrastructure. Extra DB connectors (Oracle, SQL Server, SAP, …) stay out everywhere.
 
 ## Architecture
 
-- Analytics logic (profiling, relationships, identities, semantic model, KPIs, query planner, reports) must not import PostgreSQL, HTTP frameworks, or HTML.
-- The web crate may use Axum and must call only the public `analytics` API.
+- Analytics logic (profiling, relationships, identities, semantic model, KPIs, query planner, reports) must not import PostgreSQL, HTTP frameworks, or HTML. `app/tests/boundary.rs` guards this.
+- `web/` and `app/` may use Axum and must call only the public `analytics` API.
 - All source access goes through `DataSource`. Current adapters: `FixtureConnector`, `PostgreSQLConnector`.
 - The fixture path is the primary development and test path.
 - Every relationship, KPI, identity, and report suggestion needs a confidence score plus human-readable evidence/reason. No black-box decisions.

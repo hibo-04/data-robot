@@ -1,0 +1,11 @@
+{
+  "app.name": "Octa",
+  "language.de": "Deutsch",
+  "language.en": "English",
+  "hello.title": "Hallo.",
+  "hello.body": "{app} ist noch eine leere Hülle. Der Locale-Stack steht: Sprache, Formate und Zeitzonen sind Architektur, keine Nachrüstung.",
+  "hello.language_current": "Aktive Sprache: {language, select, de {Deutsch} en {English} other {{language}}}",
+  "hello.languages_active": "{count, plural, one {# aktive Sprache} other {# aktive Sprachen}}, bei jeder Änderung gemeinsam gepflegt.",
+  "hello.fallback_note": "Ohne gespeicherte Präferenz und ohne Browser-Hinweis fällt die Oberfläche auf Deutsch zurück.",
+  "hello.switch_label": "Sprache wechseln"
+}

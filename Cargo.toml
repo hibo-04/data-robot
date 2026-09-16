@@ -1,5 +1,5 @@
 [workspace]
-members = [".", "web"]
+members = [".", "web", "app"]
 resolver = "2"
 
 [package]

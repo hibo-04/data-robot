@@ -1,6 +1,12 @@
 # analytics
 
-Local proof of concept for a source-agnostic analytics engine. No auth or cloud. A minimal local review UI lives in `web/`.
+Source-agnostic analytics engine plus two adapters around it — a throwaway local PoC UI and the beginnings of the B2B product app.
+
+| Path | Crate | World |
+| --- | --- | --- |
+| `src/` | `analytics` | The engine. No HTTP, HTML, auth, tenancy or LLM. Only `DataSource` in, suggestions with evidence out. |
+| `web/` | `analytics-web` | Local, login-free PoC review page. Not extended into the product. |
+| `app/` | `octa-app` | The product app (working title *Octa*). Accounts, organizations, sessions, locale and jobs live here, never in the engine. Built package by package along [docs/roadmap.md](docs/roadmap.md); today: shell (P0.1) plus locale stack with DE/EN catalogs (P0.2). |
 
 The engine infers schema, profiles, relationships, numeric column identities, a semantic model, KPI candidates, SQL-shaped queries, and report suggestions. It must work without an LLM.
 
@@ -23,7 +29,8 @@ cargo run -- detect-identities --fixture ./fixtures/ecommerce_dirty
 cargo run -- export-model --fixture ./fixtures/ecommerce_dirty --out ./out
 cargo run -- generate-query --fixture ./fixtures/ecommerce_dirty --query-json ./fixtures/examples/revenue_by_region.json --execute
 cargo run -- benchmark --fixture ./fixtures/ecommerce_dirty
-cargo run -p analytics-web   # http://127.0.0.1:3000
+cargo run -p analytics-web   # PoC UI, http://127.0.0.1:3000
+cargo run -p octa-app        # product app, http://127.0.0.1:4000  (?lang=en / ?lang=de)
 ```
 
 PostgreSQL (optional):
@@ -38,6 +45,8 @@ cargo run -- inspect --database-url "postgres://user:pass@localhost/dbname"
 - `src/profiling`, `relationships`, `identities`, `semantic`, `kpi`, `query`, `reports` — analytics core
 - `src/dictionary` — optional label packs (`dictionaries/generic.json`, `dictionaries/commerce.json`)
 - `web/` — local Axum + HTMX review UI (overlay JSON under `out/overlays/`)
+- `app/` — product app (`octa-app`): Axum, baseline security headers, boundary tests that keep the engine free of HTTP/HTML; `app/locales/*.json` message catalogs (ICU MessageFormat, DE + EN, parity enforced by tests), `app/src/locale.rs` language / formats / time-zone resolution
+- `docs/glossary.md` — product terms: translated or deliberately not, state labels
 - `fixtures/` — small CSV models plus `ground_truth.json` (benchmark only; never read during analysis)
   - shop: `ecommerce_clean`, `ecommerce_dirty`
   - CRM: `crm`; edge cases: `edge_cases`
@@ -47,3 +56,4 @@ cargo run -- inspect --database-url "postgres://user:pass@localhost/dbname"
   - SaaS: `saas_clean`, `saas_dirty`
   - professional services: `projects_clean`, `projects_dirty`
 - `docs/model-review.md` — later user accept/reject overlay (no UI yet)
+- `docs/roadmap.md`, `docs/web-app-construct.md`, `docs/ui-ux-notes.md` — plan, platform construct and UI notes for the product app
